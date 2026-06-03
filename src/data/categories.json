@@ -1,0 +1,122 @@
+[
+  {
+    "id": "core-bots",
+    "name": "Core Bots",
+    "icon": "Cpu",
+    "description": "Fundamental AI assistants and scraping workflows to automate daily operations.",
+    "painPoint": "Daily administrative tasks consume up to 40% of employee time, causing operational bottlenecks.",
+    "highlightStat": "Average 12 hours saved weekly per employee"
+  },
+  {
+    "id": "saas",
+    "name": "SaaS",
+    "icon": "Cloud",
+    "description": "User retention, predictive churn, and smart support automation for software products.",
+    "painPoint": "High churn rates and slow support response times kill SaaS valuations and customer trust.",
+    "highlightStat": "Reduce churn by up to 18% with automated interventions"
+  },
+  {
+    "id": "fitness",
+    "name": "Fitness",
+    "icon": "Activity",
+    "description": "Meal tracking, booking management, and retention campaigns for gyms and coaches.",
+    "painPoint": "Gym members churn within the first 90 days due to lack of engagement and manual onboarding.",
+    "highlightStat": "Recover 15%+ of inactive gym members automatically"
+  },
+  {
+    "id": "marketing",
+    "name": "Marketing",
+    "icon": "Megaphone",
+    "description": "Omni-channel repurposing, smart scoring, and ad budget optimizations.",
+    "painPoint": "Marketing teams waste thousands on unoptimized ad spend and manual content formatting.",
+    "highlightStat": "3x content output without increasing headcount"
+  },
+  {
+    "id": "travel",
+    "name": "Travel",
+    "icon": "Compass",
+    "description": "Itinerary builders, automated booking engines, and local guides.",
+    "painPoint": "Manual itinerary creation and hotel/flight price tracking is incredibly tedious and time-sensitive.",
+    "highlightStat": "Under-60-second automated booking execution"
+  },
+  {
+    "id": "education",
+    "name": "Education",
+    "icon": "GraduationCap",
+    "description": "FAQ assistants, grading aids, and automated scheduler systems.",
+    "painPoint": "Teachers and administrators spend more time on paperwork, grading, and scheduling than actual teaching.",
+    "highlightStat": "Cut grading and admin overhead by 65%"
+  },
+  {
+    "id": "finance",
+    "name": "Finance",
+    "icon": "DollarSign",
+    "description": "Invoice processing, expense auditing, and automated payroll systems.",
+    "painPoint": "Manual data entry leads to expensive billing errors, tax compliance risks, and delayed reporting.",
+    "highlightStat": "100% automated invoice processing and ledger sync"
+  },
+  {
+    "id": "legal",
+    "name": "Legal",
+    "icon": "Scale",
+    "description": "Contract review, case research helpers, and client intake bots.",
+    "painPoint": "Law firms lose billable hours performing manual legal document reviews and client follow-ups.",
+    "highlightStat": "Decrease contract review time by 80%"
+  },
+  {
+    "id": "e-commerce",
+    "name": "E-Commerce",
+    "icon": "ShoppingCart",
+    "description": "Cart recovery loops, smart inventory sync, and post-delivery follow-ups.",
+    "painPoint": "E-commerce brands lose 70% of potential sales to cart abandonment and stock discrepancies.",
+    "highlightStat": "Recover 12% to 22% of abandoned carts automatically"
+  },
+  {
+    "id": "real-estate",
+    "name": "Real Estate",
+    "icon": "Home",
+    "description": "Lead qualifiers, visit schedulers, and property drip updates.",
+    "painPoint": "Agents miss hot buyer leads because they can't answer inquiries within the critical 5-minute window.",
+    "highlightStat": "30-second response time for 100% of property inquiries"
+  },
+  {
+    "id": "healthcare",
+    "name": "Healthcare",
+    "icon": "HeartPulse",
+    "description": "Pre-consultation patient intake, booking reminders, and diet check-ins.",
+    "painPoint": "Clinics suffer from high appointment no-show rates and labor-intensive client check-ins.",
+    "highlightStat": "Reduce appointment no-shows by up to 45%"
+  },
+  {
+    "id": "wealth-trading",
+    "name": "Wealth & Trading",
+    "icon": "TrendingUp",
+    "description": "Portfolio rebalancers, index reports, and multi-asset price alert bots.",
+    "painPoint": "Asset managers and active investors miss critical market triggers and delay rebalancing portfolios.",
+    "highlightStat": "Zero-latency price alerts and automated asset adjustment"
+  },
+  {
+    "id": "web3",
+    "name": "Web3",
+    "icon": "Coins",
+    "description": "Whale wallet trackers and contract execution alerting networks.",
+    "painPoint": "On-chain activity moves at lightspeed, making manual wallet monitoring and transaction analysis impossible.",
+    "highlightStat": "Sub-second on-chain triggers and AI sentiment reports"
+  },
+  {
+    "id": "ai-swarm",
+    "name": "AI Swarm",
+    "icon": "Network",
+    "description": "Parallel research swarms and autonomous pull request reviewers.",
+    "painPoint": "Single-agent AI systems hallucinate or fail on complex multi-step workflows requiring peer review.",
+    "highlightStat": "5-agent swarms executing complex workflows in parallel"
+  },
+  {
+    "id": "ml-engine",
+    "name": "ML Engine",
+    "icon": "BrainCircuit",
+    "description": "Pre-emptive behavioral predictions and seasonal inventory forecast models.",
+    "painPoint": "Traditional logic fails to forecast demand or predict churn until it has already happened.",
+    "highlightStat": "94% accuracy in predicting customer churn behavior"
+  }
+]
