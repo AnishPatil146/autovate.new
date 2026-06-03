@@ -1,0 +1,34 @@
+[
+  {
+    "q": "How do these bots work?",
+    "a": "Each bot is a pre-configured automation template built on tools like Make.com, n8n, or Zapier, powered by OpenAI or specialized APIs. When you purchase, you receive the raw setup files, logic blueprints, and instructions to deploy them in your own accounts in under 15 minutes."
+  },
+  {
+    "q": "What software do I need to run them?",
+    "a": "Most bots run on top of standard visual automation tools (Make.com, n8n, or Zapier) and use OpenAI API keys for intelligence. The tech stack for each bot is listed clearly on its product card. We build with affordable, scalable tools so you don't need expensive developer subscriptions."
+  },
+  {
+    "q": "Can I customize the bots myself?",
+    "a": "Absolutely. Since the templates are loaded directly into your own Make or Zapier accounts, you have complete ownership. You can easily drag-and-drop new modules, change the prompt templates, adjust the filters, or rewrite notification texts to match your brand's unique needs."
+  },
+  {
+    "q": "Do you offer support and setup services?",
+    "a": "Yes! Every bot comes with step-by-step video tutorials and configuration checklists. If you don't have time, you can add our Custom Setup Service at checkout, and our automation engineers will deploy, test, and connect the bot to your systems for a small flat fee."
+  },
+  {
+    "q": "Is my data secure with these AI integrations?",
+    "a": "Yes, 100%. The bots run completely inside your own cloud infrastructure and account subscriptions. We never see, touch, or log your business data or API credentials. Your keys stay in your systems, and data flows directly from your tools to the AI models."
+  },
+  {
+    "q": "Can I get a refund if it doesn't work for my business?",
+    "a": "We offer a 30-day money-back guarantee. If you run into technical issues or can't get the bot working in your environment, our support team will help you debug it. If we can't get it running for you, we will issue a full, prompt refund."
+  },
+  {
+    "q": "Do you build custom automations?",
+    "a": "Yes. If your business has a complex workflow that isn't covered by our 70+ pre-built catalog, you can book a Strategy Call with our solution architects. We design, build, and deploy custom enterprise-grade AI swarms and ML pipelines tailored to your operations."
+  },
+  {
+    "q": "Are there any hidden fees or monthly charges?",
+    "a": "No hidden fees. You pay a one-time flat fee to purchase and own the bot template forever. The only ongoing costs are the minimal pay-as-you-go fees from the automation tools (Make/Zapier) and LLM providers (OpenAI/Bland.ai) which run on your own API keys."
+  }
+]
