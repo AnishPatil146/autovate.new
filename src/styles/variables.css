@@ -8,7 +8,7 @@
   --color-quaternary: #FF6B00;
   --color-text: #94A3B8;
   --color-heading: #F8FAFC;
-  
+
   --font-sans: 'DM Sans', sans-serif;
   --font-display: 'Syne', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -21,7 +21,7 @@
   --color-primary: #00A3C4;
   --color-secondary: #0052FF;
   --color-tertiary: #059669;
-  --color-quaternary: #EA580C;
+  --color-quaternary: #FF6B00;
   --color-text: #4B5563;
   --color-heading: #18181B;
 }
@@ -81,6 +81,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
