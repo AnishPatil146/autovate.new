@@ -4,7 +4,6 @@ import { motion, useScroll } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import WhatsAppButton from './components/ui/WhatsAppButton';
-import ExitIntentPopup from './components/ui/ExitIntentPopup';
 import { CheckoutProvider } from './context/CheckoutContext';
 
 // Pages
@@ -122,7 +121,6 @@ export default function App() {
           <Footer />
 
           {/* Floating conversion triggers */}
-          <ExitIntentPopup />
           <WhatsAppButton />
         </div>
       </CheckoutProvider>
