@@ -47,17 +47,10 @@ export default function HowItWorks({ showHeader = true }) {
             <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
               Instant operational efficiency
             </span>
-<<<<<<< HEAD
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-display">
-              From Zero to Automated in 15 Minutes
-            </h2>
-            <p className="text-zinc-400 text-sm md:text-base">
-=======
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-headingText font-display">
               From Zero to Automated in 15 Minutes
             </h2>
             <p className="text-bodyText text-sm md:text-base">
->>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
               No development teams needed. No high project pricing. Just choose, download, paste, and run.
             </p>
           </div>
@@ -86,17 +79,10 @@ export default function HowItWorks({ showHeader = true }) {
 
                 {/* Title */}
                 <div className="space-y-2">
-<<<<<<< HEAD
-                  <h3 className="text-lg font-bold font-display text-white group-hover:text-primary transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-zinc-400 text-xs leading-relaxed max-w-[240px] mx-auto">
-=======
                   <h3 className="text-lg font-bold font-display text-headingText group-hover:text-primary transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-bodyText text-xs leading-relaxed max-w-[240px] mx-auto">
->>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
                     {step.desc}
                   </p>
                 </div>
