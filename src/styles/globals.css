@@ -11,8 +11,14 @@
     font-family: var(--font-sans);
     transition: background-color 0.35s ease, color 0.35s ease;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+
     font-family: var(--font-display);
     color: var(--color-text);
   }
@@ -23,9 +29,11 @@
   0% {
     transform: translateY(0px) translateX(0px);
   }
+
   50% {
     transform: translateY(-20px) translateX(10px);
   }
+
   100% {
     transform: translateY(0px) translateX(0px);
   }
@@ -37,9 +45,9 @@
 
 /* Subtle background grid override */
 .grid-bg-glow {
-  background-image: 
-    radial-gradient(circle at 50% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%), 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px), 
+  background-image:
+    radial-gradient(circle at 50% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 100% 100%, 48px 48px, 48px 48px;
 }
@@ -49,6 +57,7 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: translate3d(-50%, 0, 0);
   }
@@ -95,12 +104,10 @@
   left: -150%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-25deg);
   transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -115,10 +122,12 @@
     transform: scale(1);
     opacity: 0.85;
   }
+
   30% {
     transform: scale(1.6);
     opacity: 0;
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;
@@ -134,9 +143,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -144,9 +155,7 @@
 
 .animate-hero-bg {
   background: radial-gradient(circle at 20% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(255, 77, 0, 0.08) 0%, transparent 60%);
+    radial-gradient(circle at 80% 70%, rgba(255, 77, 0, 0.08) 0%, transparent 60%);
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
 }
-
-
