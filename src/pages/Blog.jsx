@@ -63,10 +63,10 @@ export default function Blog() {
           <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold flex items-center justify-center">
             <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Operations knowledgebase
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white font-display leading-none">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-headingText font-display leading-none">
             Automation Resource Hub
           </h1>
-          <p className="text-zinc-400 text-sm md:text-base">
+          <p className="text-bodyText text-sm md:text-base">
             Detailed guides, code setup reviews, client case stories, and strategy tips to help you eliminate operational busywork.
           </p>
         </div>
@@ -76,10 +76,10 @@ export default function Blog() {
           {articles.map((article, idx) => (
             <article
               key={idx}
-              className="flex flex-col justify-between bg-card border border-zinc-900 rounded-2xl overflow-hidden group hover:border-primary/15 transition-all duration-300"
+              className="flex flex-col justify-between bg-card border border-cardBorder rounded-2xl overflow-hidden group hover:border-primary/15 transition-all duration-300"
             >
               {/* Image Header */}
-              <div className="relative aspect-video w-full overflow-hidden bg-zinc-950">
+              <div className="relative aspect-video w-full overflow-hidden bg-background">
                 <img
                   src={article.img}
                   alt={article.title}
@@ -88,7 +88,7 @@ export default function Blog() {
                 
                 {/* Category Pill Tag */}
                 <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wide bg-zinc-950/85 border border-zinc-800 text-primary">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wide bg-background/85 border border-cardBorder text-primary">
                     {article.category}
                   </span>
                 </div>
@@ -97,23 +97,23 @@ export default function Blog() {
               {/* Text content block */}
               <div className="p-6 flex-grow space-y-3 text-left">
                 
-                <div className="flex items-center space-x-2 text-[10px] text-zinc-500 font-mono">
+                <div className="flex items-center space-x-2 text-[10px] text-bodyText/70 font-mono">
                   <Clock className="w-3.5 h-3.5 text-zinc-650" />
                   <span>{article.readTime}</span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white font-display group-hover:text-primary transition-colors pr-2">
+                <h3 className="text-base sm:text-lg font-bold text-headingText font-display group-hover:text-primary transition-colors pr-2">
                   {article.title}
                 </h3>
                 
-                <p className="text-zinc-400 text-xs leading-relaxed line-clamp-3">
+                <p className="text-bodyText text-xs leading-relaxed line-clamp-3">
                   {article.desc}
                 </p>
               </div>
 
               {/* Link Footer */}
               <div className="p-6 pt-0 border-t border-zinc-850/80 mt-4 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase">Guides</span>
+                <span className="text-[10px] font-mono text-bodyText/70 uppercase">Guides</span>
                 <Link
                   to="/blog"
                   className="inline-flex items-center text-xs text-primary hover:underline font-mono uppercase tracking-wider group"

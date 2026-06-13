@@ -488,7 +488,7 @@ export default function Marketplace() {
                                     className="flex items-start text-[11px]"
                                   >
                                     <span className="text-emerald-500 mr-2 shrink-0">✓</span>
-                                    <span className={`leading-relaxed ${isLight ? 'text-zinc-655' : 'text-[#94A3B8]'}`}>{step}</span>
+                                    <span className="leading-relaxed text-bodyText">{step}</span>
                                   </motion.div>
                                 ))}
                               </motion.div>

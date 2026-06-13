@@ -1182,7 +1182,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h4 className="text-base font-bold text-white mb-2">6-Month Maintenance</h4>
+                <h4 className="text-base font-bold text-headingText mb-2">6-Month Maintenance</h4>
                 <p className="text-xs text-white/90 leading-relaxed">
                   Includes Slack-channel support, system upgrades, and API health reviews to prevent breakage.
                 </p>
@@ -1290,15 +1290,15 @@ export default function Home() {
             >
               <div className="p-8 space-y-6 flex-grow flex flex-col justify-between">
                 <div className="space-y-2">
-                  <h4 className="text-lg font-bold text-white font-display uppercase">Premium Suite</h4>
+                  <h4 className="text-lg font-bold text-headingText font-display uppercase">Premium Suite</h4>
                   <p className="text-xs text-white/95">
                     Bespoke operations pipelines, inventory syncs, payment links, and vector database AI bots.
                   </p>
                 </div>
                 <ul className="space-y-3 text-xs py-4 border-y border-white/20" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-white shrink-0" /> Unlimited automation connections</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-white shrink-0" /> Multi-application CRM connections</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-white shrink-0" /> 180 days complete maintenance</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-headingText shrink-0" /> Unlimited automation connections</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-headingText shrink-0" /> Multi-application CRM connections</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-headingText shrink-0" /> 180 days complete maintenance</li>
                 </ul>
                 <div className="pt-2">
                   <motion.div whileHover={{ scale: 1.03, brightness: 1.08 }} transition={{ duration: 0.15 }}>

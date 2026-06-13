@@ -119,7 +119,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1 rounded-full text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 transition-colors"
+            className="absolute top-4 right-4 p-1 rounded-full text-bodyText hover:text-headingText bg-card border border-cardBorder hover:bg-zinc-800 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -130,21 +130,21 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
             {/* Header info */}
             <div className="text-center space-y-1">
               <span className="text-[10px] font-mono text-primary uppercase tracking-widest block">Secure UPI Checkout</span>
-              <h3 className="text-xl font-bold font-display text-white">Complete Your Purchase</h3>
-              <p className="text-zinc-400 text-xs">
-                You are purchasing the <span className="text-white font-bold">{bot.name}</span> for <span className="text-primary font-mono font-bold">${bot.price}</span>.
+              <h3 className="text-xl font-bold font-display text-headingText">Complete Your Purchase</h3>
+              <p className="text-bodyText text-xs">
+                You are purchasing the <span className="text-headingText font-bold">{bot.name}</span> for <span className="text-primary font-mono font-bold">${bot.price}</span>.
               </p>
             </div>
 
             {/* Payment Method Switcher */}
-            <div className="flex bg-zinc-950 p-1 rounded-xl border border-zinc-800/80">
+            <div className="flex bg-background p-1 rounded-xl border border-cardBorder/80">
               <button
                 type="button"
                 onClick={() => setPaymentMethod('razorpay')}
                 className={`flex-1 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-1.5 ${
                   paymentMethod === 'razorpay' 
                     ? 'bg-primary text-black' 
-                    : 'text-zinc-400 hover:text-white hover:bg-zinc-900/40'
+                    : 'text-bodyText hover:text-headingText hover:bg-card/40'
                 }`}
               >
                 <CreditCard className="w-3.5 h-3.5" /> Pay Online
@@ -155,7 +155,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                 className={`flex-1 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-1.5 ${
                   paymentMethod === 'qr' 
                     ? 'bg-primary text-black' 
-                    : 'text-zinc-400 hover:text-white hover:bg-zinc-900/40'
+                    : 'text-bodyText hover:text-headingText hover:bg-card/40'
                 }`}
               >
                 <QrCode className="w-3.5 h-3.5" /> Scan QR Code
@@ -165,7 +165,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
             {paymentMethod === 'razorpay' ? (
               <div className="space-y-4">
                 <div className="space-y-1 text-left">
-                  <label className="text-xs font-mono text-zinc-400 flex items-center">
+                  <label className="text-xs font-mono text-bodyText flex items-center">
                     <Mail className="w-3.5 h-3.5 mr-1.5 text-primary" /> Delivery Email Address *
                   </label>
                   <input
@@ -174,9 +174,9 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@company.com"
-                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white placeholder-zinc-600 transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText placeholder-zinc-600 transition-colors"
                   />
-                  <span className="text-[9px] text-zinc-500 block">We will send your blueprint files and video guide link here.</span>
+                  <span className="text-[9px] text-bodyText/70 block">We will send your blueprint files and video guide link here.</span>
                 </div>
 
                 {error && <p className="text-red-500 text-xs pl-1 font-mono text-left">{error}</p>}
@@ -185,7 +185,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full sm:w-1/3 py-3.5 bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-zinc-400 hover:text-white rounded-full text-xs font-bold font-display uppercase tracking-wider transition-colors"
+                    className="w-full sm:w-1/3 py-3.5 bg-card hover:bg-zinc-850 border border-cardBorder text-bodyText hover:text-headingText rounded-full text-xs font-bold font-display uppercase tracking-wider transition-colors"
                   >
                     Cancel
                   </button>
@@ -209,8 +209,8 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
             ) : (
               <form onSubmit={handleManualSubmit} className="space-y-4 text-left">
                 {/* QR display block */}
-                <div className="flex flex-col items-center bg-zinc-950/80 p-4 rounded-xl border border-zinc-800/80 space-y-3">
-                  <div className="relative w-40 aspect-[0.4] overflow-hidden rounded-lg border border-zinc-800 shadow-lg">
+                <div className="flex flex-col items-center bg-background/80 p-4 rounded-xl border border-cardBorder/80 space-y-3">
+                  <div className="relative w-40 aspect-[0.4] overflow-hidden rounded-lg border border-cardBorder shadow-lg">
                     <img
                       src="/payment-qr.png"
                       alt="GLOWGRIP UPI Payment QR"
@@ -218,15 +218,15 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-[10px] font-mono text-zinc-400 flex items-center justify-center">
+                    <p className="text-[10px] font-mono text-bodyText flex items-center justify-center">
                       <QrCode className="w-3.5 h-3.5 mr-1 text-primary" /> Scan & Pay with GPay, PhonePe, Paytm, or BHIM
                     </p>
-                    <p className="text-[9px] text-zinc-500 mt-0.5">UPI ID: GLOWGRIP (Razorpay Merchant)</p>
+                    <p className="text-[9px] text-bodyText/70 mt-0.5">UPI ID: GLOWGRIP (Razorpay Merchant)</p>
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-mono text-zinc-400 flex items-center">
+                  <label className="text-xs font-mono text-bodyText flex items-center">
                     <Mail className="w-3.5 h-3.5 mr-1.5 text-primary" /> Delivery Email Address *
                   </label>
                   <input
@@ -235,13 +235,13 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@company.com"
-                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white placeholder-zinc-650 transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText placeholder-zinc-650 transition-colors"
                   />
-                  <span className="text-[9px] text-zinc-500 block">We will send your blueprint files and video guide link here.</span>
+                  <span className="text-[9px] text-bodyText/70 block">We will send your blueprint files and video guide link here.</span>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-mono text-zinc-400 flex items-center">
+                  <label className="text-xs font-mono text-bodyText flex items-center">
                     <FileCheck className="w-3.5 h-3.5 mr-1.5 text-primary" /> Transaction UTR / Ref Number *
                   </label>
                   <input
@@ -250,9 +250,9 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                     value={utr}
                     onChange={(e) => setUtr(e.target.value)}
                     placeholder="Enter 12-digit transaction ID"
-                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white placeholder-zinc-650 transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText placeholder-zinc-650 transition-colors"
                   />
-                  <span className="text-[9px] text-zinc-500 block">Enter the UTR or Reference ID from your UPI app receipt to confirm the scan.</span>
+                  <span className="text-[9px] text-bodyText/70 block">Enter the UTR or Reference ID from your UPI app receipt to confirm the scan.</span>
                 </div>
 
                 {error && <p className="text-red-500 text-xs pl-1 font-mono">{error}</p>}
@@ -262,7 +262,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full sm:w-1/3 py-3.5 bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-zinc-400 hover:text-white rounded-full text-xs font-bold font-display uppercase tracking-wider transition-colors"
+                    className="w-full sm:w-1/3 py-3.5 bg-card hover:bg-zinc-850 border border-cardBorder text-bodyText hover:text-headingText rounded-full text-xs font-bold font-display uppercase tracking-wider transition-colors"
                   >
                     Cancel
                   </button>
@@ -284,7 +284,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
               </form>
             )}
 
-            <div className="pt-3 border-t border-zinc-900 text-center flex items-center justify-center space-x-2 text-[10px] text-zinc-500">
+            <div className="pt-3 border-t border-cardBorder text-center flex items-center justify-center space-x-2 text-[10px] text-bodyText/70">
               <ShieldCheck className="w-3.5 h-3.5 text-tertiary" />
               <span>Instant Verification | 30-Day Setup Guarantee</span>
             </div>

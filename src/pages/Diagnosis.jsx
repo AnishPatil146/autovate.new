@@ -395,11 +395,11 @@ Can we schedule a strategy call?`
             <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-primary font-bold flex items-center justify-center gap-2">
               <Sparkles className="w-3.5 h-3.5" /> AI Diagnostic Assistant
             </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-display leading-none uppercase">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-headingText font-display leading-none uppercase">
               Find Your Perfect <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-indigo-400">Automation Plan</span>
             </h1>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-bodyText text-sm sm:text-base leading-relaxed">
               Answer 6 quick questions. Our simulation engine will diagnose exactly which automations you need, compute your estimated weekly ROI, and draft a timeline.
             </p>
           </div>
@@ -407,12 +407,12 @@ Can we schedule a strategy call?`
 
         {/* STEPPER PROGRESS */}
         {currentQ >= 0 && currentQ < questions.length && (
-          <div className="max-w-2xl mx-auto mb-8 bg-[#0c0c0c] border border-zinc-900 rounded-xl p-4">
-            <div className="flex justify-between items-center text-xs font-mono font-bold text-zinc-500 mb-2">
+          <div className="max-w-2xl mx-auto mb-8 bg-[#0c0c0c] border border-cardBorder rounded-xl p-4">
+            <div className="flex justify-between items-center text-xs font-mono font-bold text-bodyText/70 mb-2">
               <span>QUESTION {currentQ + 1} OF {questions.length}</span>
               <span className="text-primary">{Math.round((currentQ / questions.length) * 100)}% COMPLETE</span>
             </div>
-            <div className="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-card rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300 rounded-full"
                 style={{ width: `${(currentQ / questions.length) * 100}%` }}
@@ -440,33 +440,33 @@ Can we schedule a strategy call?`
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
-                  className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-8 text-center space-y-6 shadow-xl"
+                  className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-8 text-center space-y-6 shadow-xl"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mx-auto shadow-glow">
                     <Brain className="w-8 h-8" />
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-xl font-bold uppercase tracking-tight text-white font-display">Begin Your Operations Assessment</h2>
-                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    <h2 className="text-xl font-bold uppercase tracking-tight text-headingText font-display">Begin Your Operations Assessment</h2>
+                    <p className="text-bodyText text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
                       No sign-up or phone numbers required. Instant simulation results calculated based on target business volume and labor variables.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 text-left">
-                    <div className="bg-[#111] border border-zinc-900 p-3.5 rounded-xl space-y-1.5">
+                    <div className="bg-[#111] border border-cardBorder p-3.5 rounded-xl space-y-1.5">
                       <Clock className="w-4 h-4 text-primary" />
-                      <h4 className="text-[10px] font-mono font-bold uppercase text-white">2 Min Quiz</h4>
-                      <p className="text-[9px] text-zinc-500">Short operational filters</p>
+                      <h4 className="text-[10px] font-mono font-bold uppercase text-headingText">2 Min Quiz</h4>
+                      <p className="text-[9px] text-bodyText/70">Short operational filters</p>
                     </div>
-                    <div className="bg-[#111] border border-zinc-900 p-3.5 rounded-xl space-y-1.5">
+                    <div className="bg-[#111] border border-cardBorder p-3.5 rounded-xl space-y-1.5">
                       <Zap className="w-4 h-4 text-orange-400" />
-                      <h4 className="text-[10px] font-mono font-bold uppercase text-white">ROI Calculator</h4>
-                      <p className="text-[9px] text-zinc-500">Dynamic hours split saving</p>
+                      <h4 className="text-[10px] font-mono font-bold uppercase text-headingText">ROI Calculator</h4>
+                      <p className="text-[9px] text-bodyText/70">Dynamic hours split saving</p>
                     </div>
-                    <div className="bg-[#111] border border-zinc-900 p-3.5 rounded-xl space-y-1.5">
+                    <div className="bg-[#111] border border-cardBorder p-3.5 rounded-xl space-y-1.5">
                       <Check className="w-4 h-4 text-emerald-400" />
-                      <h4 className="text-[10px] font-mono font-bold uppercase text-white">Custom Roadmap</h4>
-                      <p className="text-[9px] text-zinc-500">Structured go-live timeline</p>
+                      <h4 className="text-[10px] font-mono font-bold uppercase text-headingText">Custom Roadmap</h4>
+                      <p className="text-[9px] text-bodyText/70">Structured go-live timeline</p>
                     </div>
                   </div>
 
@@ -486,7 +486,7 @@ Can we schedule a strategy call?`
                   className="space-y-4"
                 >
                   <div className="text-center">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-zinc-500 uppercase font-bold">
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-bodyText/70 uppercase font-bold">
                       Or Calibrate ROI Inputs First
                     </span>
                   </div>
@@ -503,16 +503,16 @@ Can we schedule a strategy call?`
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.25 }}
-                className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl text-left"
+                className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl text-left"
               >
                 <div>
                   <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
                     {questions[currentQ].step}
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-bold font-display uppercase text-white mt-3 leading-tight">
+                  <h2 className="text-xl sm:text-2xl font-bold font-display uppercase text-headingText mt-3 leading-tight">
                     {questions[currentQ].text}
                   </h2>
-                  <p className="text-zinc-400 text-xs mt-1 leading-relaxed">
+                  <p className="text-bodyText text-xs mt-1 leading-relaxed">
                     {questions[currentQ].sub}
                   </p>
                 </div>
@@ -532,13 +532,13 @@ Can we schedule a strategy call?`
                         className={`flex items-center space-x-3 p-4 rounded-xl border text-xs text-left font-sans transition-all ${
                           selected 
                             ? 'bg-primary/10 border-primary/50 text-white font-bold' 
-                            : 'bg-zinc-950 border-zinc-900 text-zinc-400 hover:text-white hover:border-zinc-800'
+                            : 'bg-background border-cardBorder text-bodyText hover:text-headingText hover:border-cardBorder'
                         }`}
                       >
                         <div className={`w-4 h-4 rounded flex items-center justify-center shrink-0 border transition-all ${
                           selected 
                             ? 'bg-primary border-primary text-black' 
-                            : 'border-zinc-800 bg-[#111]'
+                            : 'border-cardBorder bg-[#111]'
                         }`}>
                           {selected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
@@ -549,10 +549,10 @@ Can we schedule a strategy call?`
                 </div>
 
                 {/* Nav buttons */}
-                <div className="flex justify-between items-center pt-4 border-t border-zinc-900">
+                <div className="flex justify-between items-center pt-4 border-t border-cardBorder">
                   <button
                     onClick={goBack}
-                    className="flex items-center space-x-1.5 py-2.5 px-4 rounded-lg bg-[#111] border border-zinc-900 hover:border-zinc-800 text-zinc-400 hover:text-white text-xs font-semibold transition-all"
+                    className="flex items-center space-x-1.5 py-2.5 px-4 rounded-lg bg-[#111] border border-cardBorder hover:border-cardBorder text-bodyText hover:text-headingText text-xs font-semibold transition-all"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     <span>Back</span>
@@ -576,14 +576,14 @@ Can we schedule a strategy call?`
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-12 text-center space-y-6 shadow-xl"
+                className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-12 text-center space-y-6 shadow-xl"
               >
                 <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mx-auto">
                   <RefreshCw className="w-7 h-7 animate-spin text-primary" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold font-display uppercase text-white tracking-wide">Compiling Diagnosis Report...</h3>
-                  <p className="text-zinc-500 text-xs max-w-sm mx-auto leading-relaxed">
+                  <h3 className="text-lg font-bold font-display uppercase text-headingText tracking-wide">Compiling Diagnosis Report...</h3>
+                  <p className="text-bodyText/70 text-xs max-w-sm mx-auto leading-relaxed">
                     Our local simulation logic is checking constraints, splitting operational ranges, and resolving ideal integration steps.
                   </p>
                 </div>
@@ -605,32 +605,32 @@ Can we schedule a strategy call?`
                 className="space-y-8"
               >
                 {/* Result Header Card */}
-                <div className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl text-left relative overflow-hidden">
+                <div className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl text-left relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
                   <div>
                     <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-primary uppercase bg-primary/10 border border-primary/20 px-3 py-1 rounded-full inline-block">
                       Diagnostic Report Complete
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white mt-3 uppercase tracking-tight leading-none">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-headingText mt-3 uppercase tracking-tight leading-none">
                       {result.headline}
                     </h2>
                   </div>
-                  <div className="h-px bg-zinc-900 w-full my-1"></div>
-                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                  <div className="h-px bg-card w-full my-1"></div>
+                  <p className="text-bodyText text-xs sm:text-sm leading-relaxed">
                     {result.summary}
                   </p>
                 </div>
 
                 {/* Estimated Impact / Dynamic ROI Grid */}
                 <div className="space-y-3 text-left">
-                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-zinc-500">Estimated Project Impact</h3>
+                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-bodyText/70">Estimated Project Impact</h3>
                   <div className="grid grid-cols-2 gap-4">
                     {result.roi.map((rc, idx) => (
-                      <div key={idx} className="bg-[#0c0c0c] border border-zinc-900 rounded-xl p-5 hover:border-zinc-800 transition-all flex flex-col justify-between">
+                      <div key={idx} className="bg-[#0c0c0c] border border-cardBorder rounded-xl p-5 hover:border-cardBorder transition-all flex flex-col justify-between">
                         <div className="text-2xl sm:text-3xl font-bold font-mono" style={{ color: rc.color }}>
                           {rc.value}
                         </div>
-                        <div className="text-[10px] uppercase font-mono text-zinc-500 tracking-wider mt-1.5 font-bold">
+                        <div className="text-[10px] uppercase font-mono text-bodyText/70 tracking-wider mt-1.5 font-bold">
                           {rc.label}
                         </div>
                       </div>
@@ -648,23 +648,23 @@ Can we schedule a strategy call?`
 
                 {/* Recommended Automations List */}
                 <div className="space-y-4 text-left">
-                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-zinc-500">Recommended Automations Suite</h3>
+                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-bodyText/70">Recommended Automations Suite</h3>
                   <div className="space-y-4">
                     {result.automations.map((item, idx) => (
                       <div 
                         key={idx}
-                        className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl overflow-hidden hover:border-zinc-800 transition-all"
+                        className="bg-[#0c0c0c] border border-cardBorder rounded-2xl overflow-hidden hover:border-cardBorder transition-all"
                       >
                         {/* Accent Bar */}
                         <div className="h-[3px]" style={{ backgroundColor: item.color }}></div>
                         <div className="p-5 sm:p-6 space-y-4">
                           {/* Header */}
                           <div className="flex items-start space-x-3.5">
-                            <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-zinc-850 bg-zinc-950/80 text-xl shadow-sm">
+                            <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-zinc-850 bg-background/80 text-xl shadow-sm">
                               {item.emoji}
                             </div>
                             <div className="flex-1 space-y-1">
-                              <div className="flex items-center space-x-2 text-[9px] font-mono text-zinc-500 uppercase font-bold">
+                              <div className="flex items-center space-x-2 text-[9px] font-mono text-bodyText/70 uppercase font-bold">
                                 <span>RECOMMENDATION #{item.rank}</span>
                                 <span>•</span>
                                 <span className={`px-2 py-0.5 rounded text-[8px] font-bold tracking-wide border ${
@@ -675,14 +675,14 @@ Can we schedule a strategy call?`
                                   {item.priority} Priority
                                 </span>
                               </div>
-                              <h4 className="text-base sm:text-lg font-bold text-white uppercase font-display leading-none">
+                              <h4 className="text-base sm:text-lg font-bold text-headingText uppercase font-display leading-none">
                                 {item.name}
                               </h4>
                             </div>
                           </div>
 
                           {/* Why */}
-                          <p className="text-xs text-zinc-400 leading-relaxed">
+                          <p className="text-xs text-bodyText leading-relaxed">
                             {item.why}
                           </p>
 
@@ -691,7 +691,7 @@ Can we schedule a strategy call?`
                             {item.impact.map((chip, cIdx) => (
                               <span 
                                 key={cIdx}
-                                className="px-2 py-0.5 rounded border border-zinc-900 bg-[#111] text-[9px] font-mono text-zinc-500 uppercase tracking-wider font-bold"
+                                className="px-2 py-0.5 rounded border border-cardBorder bg-[#111] text-[9px] font-mono text-bodyText/70 uppercase tracking-wider font-bold"
                               >
                                 {chip}
                               </span>
@@ -699,13 +699,13 @@ Can we schedule a strategy call?`
                           </div>
 
                           {/* Steps Accordion Simulation */}
-                          <div className="bg-zinc-950 border border-zinc-900 rounded-xl p-3.5 space-y-2.5">
-                            <div className="text-[9px] uppercase font-mono text-zinc-500 tracking-wider font-bold">
+                          <div className="bg-background border border-cardBorder rounded-xl p-3.5 space-y-2.5">
+                            <div className="text-[9px] uppercase font-mono text-bodyText/70 tracking-wider font-bold">
                               How it runs for you
                             </div>
                             <div className="space-y-2">
                               {item.steps.map((step, sIdx) => (
-                                <div key={sIdx} className="flex items-start space-x-2.5 text-xs text-zinc-400">
+                                <div key={sIdx} className="flex items-start space-x-2.5 text-xs text-bodyText">
                                   <span className="font-mono text-[10px] font-bold shrink-0 mt-0.5" style={{ color: item.color }}>
                                     0{sIdx + 1}
                                   </span>
@@ -722,15 +722,15 @@ Can we schedule a strategy call?`
 
                 {/* Timeline Roadmap */}
                 <div className="space-y-3 text-left">
-                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-zinc-500">Deploy Timeline Roadmap</h3>
-                  <div className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-5 sm:p-6 space-y-4">
+                  <h3 className="text-xs uppercase font-mono font-bold tracking-widest text-bodyText/70">Deploy Timeline Roadmap</h3>
+                  <div className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-5 sm:p-6 space-y-4">
                     {result.timeline.map((row, rIdx) => (
                       <div key={rIdx} className="flex items-start space-x-4">
                         <span className="text-[10px] font-mono font-bold text-black bg-secondary border border-secondary px-2 py-1 rounded shrink-0 w-16 text-center uppercase tracking-wider">
                           {row.week}
                         </span>
                         <p 
-                          className="text-xs text-zinc-400 leading-normal pt-0.5"
+                          className="text-xs text-bodyText leading-normal pt-0.5"
                           dangerouslySetInnerHTML={{ __html: row.text }}
                         />
                       </div>
@@ -739,11 +739,11 @@ Can we schedule a strategy call?`
                 </div>
 
                 {/* Call to Action card */}
-                <div className="bg-[#0c0c0c] border border-zinc-900 rounded-2xl p-6 sm:p-8 text-center space-y-5 shadow-xl relative overflow-hidden">
+                <div className="bg-[#0c0c0c] border border-cardBorder rounded-2xl p-6 sm:p-8 text-center space-y-5 shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-36 h-36 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
                   <div className="space-y-1">
-                    <h3 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-tight text-white">Deploy Your Plan in 3-7 Days</h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+                    <h3 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-tight text-headingText">Deploy Your Plan in 3-7 Days</h3>
+                    <p className="text-bodyText text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
                       Submit your diagnostic findings directly to our engineering team on WhatsApp to review feasibility.
                     </p>
                   </div>
@@ -763,7 +763,7 @@ Can we schedule a strategy call?`
                     </a>
                     <button
                       onClick={handleRestart}
-                      className="w-full py-3 border border-zinc-800 hover:border-zinc-700 bg-zinc-950 text-zinc-400 hover:text-white rounded-xl text-xs font-bold tracking-wider transition-all"
+                      className="w-full py-3 border border-cardBorder hover:border-zinc-700 bg-background text-bodyText hover:text-headingText rounded-xl text-xs font-bold tracking-wider transition-all"
                     >
                       Restart Assessment
                     </button>

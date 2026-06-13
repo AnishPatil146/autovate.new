@@ -66,10 +66,10 @@ export default function CaseStudies() {
           <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold flex items-center justify-center">
             <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Direct operational numbers
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white font-display leading-none">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-headingText font-display leading-none">
             Proven Client Results
           </h1>
-          <p className="text-zinc-400 text-sm md:text-base">
+          <p className="text-bodyText text-sm md:text-base">
             No theories. No vague projections. Read how real business owners implemented our automated blueprints to reclaim time and slash overheads.
           </p>
         </div>
@@ -79,14 +79,14 @@ export default function CaseStudies() {
           {cases.map((cs, idx) => (
             <div
               key={idx}
-              className="bg-card border border-zinc-900 rounded-3xl p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden"
+              className="bg-card border border-cardBorder rounded-3xl p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden"
             >
               {/* Background gradient highlights */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* Left side: Results metrics */}
-              <div className="lg:col-span-4 bg-zinc-950/60 border border-zinc-850 rounded-2xl p-6 text-center space-y-3 shrink-0">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">Key Metric Saved</span>
+              <div className="lg:col-span-4 bg-background/60 border border-zinc-850 rounded-2xl p-6 text-center space-y-3 shrink-0">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-bodyText/70">Key Metric Saved</span>
                 <div className="text-4xl sm:text-5xl font-extrabold font-mono text-primary leading-none">
                   {cs.metric}
                 </div>
@@ -98,7 +98,7 @@ export default function CaseStudies() {
                   <span className="text-[9px] uppercase font-mono text-zinc-550 block">Bot Blueprint Deployed</span>
                   <Link
                     to={`/bot/${cs.botSlug}`}
-                    className="font-bold text-xs text-white font-display hover:text-primary transition-colors flex items-center justify-center"
+                    className="font-bold text-xs text-headingText font-display hover:text-primary transition-colors flex items-center justify-center"
                   >
                     {cs.botName} Blueprint <ArrowRight className="w-3.5 h-3.5 ml-1 text-primary shrink-0" />
                   </Link>
@@ -111,24 +111,24 @@ export default function CaseStudies() {
                   <span className="text-[10px] font-mono text-secondary uppercase tracking-widest block font-bold mb-1">
                     {cs.company}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-headingText font-display">
                     {cs.title}
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <h4 className="text-xs font-bold font-mono text-zinc-500 uppercase">The Problem</h4>
-                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">{cs.problem}</p>
+                    <h4 className="text-xs font-bold font-mono text-bodyText/70 uppercase">The Problem</h4>
+                    <p className="text-bodyText text-xs sm:text-sm leading-relaxed">{cs.problem}</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-xs font-bold font-mono text-zinc-500 uppercase">The Deployment</h4>
-                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">{cs.solution}</p>
+                    <h4 className="text-xs font-bold font-mono text-bodyText/70 uppercase">The Deployment</h4>
+                    <p className="text-bodyText text-xs sm:text-sm leading-relaxed">{cs.solution}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3 pt-4 border-t border-zinc-850">
-                  <h4 className="text-xs font-bold font-mono text-zinc-500 uppercase">Measurable Results</h4>
+                  <h4 className="text-xs font-bold font-mono text-bodyText/70 uppercase">Measurable Results</h4>
                   <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {cs.results.map((res, rIdx) => (
                       <li key={rIdx} className="flex items-start text-xs text-zinc-300">
@@ -146,10 +146,10 @@ export default function CaseStudies() {
         </div>
 
         {/* Global Strategy Call Action Banner */}
-        <section className="bg-gradient-to-r from-zinc-900 to-neutralDark border border-zinc-800 rounded-3xl p-10 text-center space-y-6">
+        <section className="bg-gradient-to-r from-zinc-900 to-neutralDark border border-cardBorder rounded-3xl p-10 text-center space-y-6">
           <div className="space-y-2 max-w-xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">Replicate These Numbers In Your Business</h3>
-            <p className="text-zinc-400 text-xs sm:text-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold text-headingText font-display">Replicate These Numbers In Your Business</h3>
+            <p className="text-bodyText text-xs sm:text-sm">
               We design, configure, and connect custom AI automation swarms that integrate into your systems. Reclaim 20+ hours a week.
             </p>
           </div>

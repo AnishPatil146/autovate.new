@@ -20,10 +20,17 @@ export default function CTABanner() {
             <span className="text-[10px] font-mono uppercase tracking-widest text-secondary font-bold flex items-center justify-center">
               <Sparkles className="w-3.5 h-3.5 mr-1.5 text-secondary animate-pulse" /> Stop losing time
             </span>
+<<<<<<< HEAD
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white font-display leading-none">
               Find Your Bot in 30 Seconds
             </h2>
             <p className="text-zinc-405 text-zinc-400 text-sm md:text-base leading-relaxed">
+=======
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-headingText font-display leading-none">
+              Find Your Bot in 30 Seconds
+            </h2>
+            <p className="text-zinc-405 text-bodyText text-sm md:text-base leading-relaxed">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
               Why hire an agency or spend $10,000 on custom developers? Join 10,000+ businesses running our ready-to-deploy automation stack 24/7.
             </p>
           </div>
@@ -38,13 +45,21 @@ export default function CTABanner() {
             
             <Link
               to="/contact"
+<<<<<<< HEAD
               className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold rounded-full transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display"
+=======
+              className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-card border border-cardBorder hover:border-zinc-700 text-zinc-300 hover:text-headingText font-semibold rounded-full transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display"
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
             >
               Talk to a Solutions Architect
             </Link>
           </div>
 
+<<<<<<< HEAD
           <div className="pt-2 text-zinc-500 text-xs font-mono flex items-center justify-center space-x-6">
+=======
+          <div className="pt-2 text-bodyText/70 text-xs font-mono flex items-center justify-center space-x-6">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
             <span>✓ Flat One-Time Fee</span>
             <span>✓ Setup Video Guides</span>
             <span>✓ 30-Day Money-Back Guarantee</span>

@@ -74,7 +74,7 @@ export default function ExitIntentPopup() {
             {/* Close Button */}
             <button
               onClick={handleDismiss}
-              className="absolute top-4 right-4 p-1 rounded-full text-zinc-500 hover:text-white bg-zinc-800/40 hover:bg-zinc-800 transition-colors"
+              className="absolute top-4 right-4 p-1 rounded-full text-bodyText/70 hover:text-headingText bg-zinc-800/40 hover:bg-zinc-800 transition-colors"
               aria-label="Close popup"
             >
               <X className="w-5 h-5" />
@@ -87,23 +87,23 @@ export default function ExitIntentPopup() {
                 </div>
                 
                 <div className="space-y-2">
-                  <h3 className="text-3xl font-bold tracking-tight text-white font-display">
+                  <h3 className="text-3xl font-bold tracking-tight text-headingText font-display">
                     Wait — Don't Leave Empty-Handed!
                   </h3>
-                  <p className="text-zinc-400 text-sm max-w-md mx-auto">
+                  <p className="text-bodyText text-sm max-w-md mx-auto">
                     Get an instant <span className="text-primary font-bold">10% OFF</span> coupon for your first AI bot deployment checklist.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-3 max-w-md mx-auto">
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 w-5 h-5" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-bodyText/70 w-5 h-5" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your work email"
-                      className="w-full pl-12 pr-4 py-3.5 bg-zinc-900 border border-zinc-700/60 rounded-full focus:outline-none focus:border-primary/60 text-white placeholder-zinc-500 text-sm transition-colors"
+                      className="w-full pl-12 pr-4 py-3.5 bg-card border border-zinc-700/60 rounded-full focus:outline-none focus:border-primary/60 text-headingText placeholder-zinc-500 text-sm transition-colors"
                       required
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function ExitIntentPopup() {
                   </button>
                 </form>
 
-                <p className="text-[11px] text-zinc-500">
+                <p className="text-[11px] text-bodyText/70">
                   No spam. Unsubscribe anytime. Instantly unlocks code code AUTOVATE10.
                 </p>
               </div>
@@ -128,13 +128,13 @@ export default function ExitIntentPopup() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-3xl font-bold text-white font-display">Welcome to Autovate!</h3>
-                  <p className="text-zinc-400 text-sm">
+                  <h3 className="text-3xl font-bold text-headingText font-display">Welcome to Autovate!</h3>
+                  <p className="text-bodyText text-sm">
                     Use this discount code at checkout for <span className="text-tertiary font-bold">10% OFF</span> your order:
                   </p>
                 </div>
 
-                <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-xl max-w-xs mx-auto">
+                <div className="p-4 bg-card border border-cardBorder rounded-xl max-w-xs mx-auto">
                   <span className="text-2xl font-mono font-bold tracking-widest text-primary">
                     AUTOVATE10
                   </span>
@@ -143,7 +143,7 @@ export default function ExitIntentPopup() {
                 <div className="pt-2">
                   <button
                     onClick={handleDismiss}
-                    className="px-6 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full transition-colors text-sm font-medium"
+                    className="px-6 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-headingText rounded-full transition-colors text-sm font-medium"
                   >
                     Start Browsing Bots
                   </button>

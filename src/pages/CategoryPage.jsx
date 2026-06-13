@@ -54,8 +54,8 @@ export default function CategoryPage() {
       <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-6 pt-24 bg-background">
         <AlertCircle className="w-16 h-16 text-yellow-500" />
         <div className="text-center space-y-2">
-          <h2 className="text-2xl font-bold font-display text-white">Category Not Found</h2>
-          <p className="text-zinc-500 text-sm max-w-sm">
+          <h2 className="text-2xl font-bold font-display text-headingText">Category Not Found</h2>
+          <p className="text-bodyText/70 text-sm max-w-sm">
             We couldn't locate this specific industry automation category.
           </p>
         </div>
@@ -86,12 +86,12 @@ export default function CategoryPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 relative z-10">
         
         {/* Back Link */}
-        <Link to="/marketplace" className="inline-flex items-center text-xs font-mono text-zinc-500 hover:text-primary transition-colors">
+        <Link to="/marketplace" className="inline-flex items-center text-xs font-mono text-bodyText/70 hover:text-primary transition-colors">
           <ArrowLeft className="w-3.5 h-3.5 mr-1.5" /> Back to Marketplace
         </Link>
 
         {/* Category Hero Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-900 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-cardBorder pb-12">
           
           <div className="lg:col-span-8 space-y-4 text-left">
             <div className="flex items-center space-x-3 text-primary">
@@ -102,17 +102,17 @@ export default function CategoryPage() {
                 Industry Specific Suite
               </span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white font-display leading-none">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-headingText font-display leading-none">
               {category.name} AI Automations
             </h1>
-            <p className="text-zinc-400 text-base md:text-lg max-w-2xl leading-relaxed">
+            <p className="text-bodyText text-base md:text-lg max-w-2xl leading-relaxed">
               {category.description} Optimize operational workflow speed and slash human labor overheads.
             </p>
           </div>
 
-          <div className="lg:col-span-4 bg-zinc-950/60 border border-zinc-900 rounded-2xl p-6 text-left space-y-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">Benchmark Performance</span>
-            <div className="text-lg font-bold text-white font-display flex items-center">
+          <div className="lg:col-span-4 bg-background/60 border border-cardBorder rounded-2xl p-6 text-left space-y-2">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-bodyText/70">Benchmark Performance</span>
+            <div className="text-lg font-bold text-headingText font-display flex items-center">
               <TrendingUp className="w-4 h-4 text-tertiary mr-2 shrink-0" />
               {category.highlightStat}
             </div>
@@ -125,10 +125,10 @@ export default function CategoryPage() {
           <div className="flex items-center text-red-500 font-bold text-xs uppercase tracking-wider font-mono">
             <AlertCircle className="w-4 h-4 mr-2" /> Critical Operational Leak
           </div>
-          <h3 className="text-lg font-bold text-white font-display">
+          <h3 className="text-lg font-bold text-headingText font-display">
             The Industry Bottle-Neck:
           </h3>
-          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-3xl">
+          <p className="text-bodyText text-xs sm:text-sm leading-relaxed max-w-3xl">
             {category.painPoint} By deploying specific pre-configured bot sequences, you eliminate manual checks, reduce transaction friction, and reclaim lost billable time.
           </p>
         </section>
@@ -136,8 +136,8 @@ export default function CategoryPage() {
         {/* List of Bots in this Category */}
         <section className="space-y-8">
           <div className="text-left space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">Available Automation Blueprints</h3>
-            <p className="text-xs sm:text-sm text-zinc-500">
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Available Automation Blueprints</h3>
+            <p className="text-xs sm:text-sm text-bodyText/70">
               Browse ready-to-deploy blueprints for the {category.name} stack. Click 'Buy Now' to download setup packages.
             </p>
           </div>
@@ -167,15 +167,15 @@ export default function CategoryPage() {
                 "{testimonial.quote}"
               </blockquote>
               
-              <div className="flex items-center space-x-3 pt-4 border-t border-zinc-800/80">
+              <div className="flex items-center space-x-3 pt-4 border-t border-cardBorder/80">
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.user}
-                  className="w-10 h-10 rounded-full border border-zinc-800 object-cover"
+                  className="w-10 h-10 rounded-full border border-cardBorder object-cover"
                 />
                 <div>
-                  <h4 className="text-xs font-bold text-white font-display">{testimonial.user}</h4>
-                  <p className="text-[10px] text-zinc-500">{testimonial.role}</p>
+                  <h4 className="text-xs font-bold text-headingText font-display">{testimonial.user}</h4>
+                  <p className="text-[10px] text-bodyText/70">{testimonial.role}</p>
                 </div>
                 <div className="ml-auto bg-tertiary/10 border border-tertiary/20 text-tertiary font-mono text-[10px] px-3 py-1 rounded-md uppercase font-semibold">
                   {testimonial.metric}
@@ -186,11 +186,11 @@ export default function CategoryPage() {
         )}
 
         {/* CTA block */}
-        <section className="bg-gradient-to-r from-zinc-900 to-neutralDark border border-zinc-800 rounded-3xl p-10 text-center space-y-6">
+        <section className="bg-gradient-to-r from-zinc-900 to-neutralDark border border-cardBorder rounded-3xl p-10 text-center space-y-6">
           <div className="space-y-2 max-w-xl mx-auto">
             <span className="text-[10px] font-mono text-secondary uppercase font-bold tracking-wider">Start optimizing today</span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">Need a Specialized Custom Bot?</h3>
-            <p className="text-zinc-400 text-xs sm:text-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold text-headingText font-display">Need a Specialized Custom Bot?</h3>
+            <p className="text-bodyText text-xs sm:text-sm">
               If our {category.name} pre-built blueprints don't cover your specific edge case, our automation engineers can build a tailored solution in hours.
             </p>
           </div>
@@ -204,7 +204,7 @@ export default function CategoryPage() {
             </Link>
             <Link
               to="/marketplace"
-              className="px-6 py-3 bg-zinc-800 border border-zinc-700 hover:border-zinc-600 text-white font-semibold text-xs font-display uppercase tracking-wider rounded-full"
+              className="px-6 py-3 bg-zinc-800 border border-zinc-700 hover:border-zinc-600 text-headingText font-semibold text-xs font-display uppercase tracking-wider rounded-full"
             >
               Browse All 70+ Bots
             </Link>

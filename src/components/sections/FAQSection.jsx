@@ -23,10 +23,17 @@ export default function FAQSection() {
           <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
             Frequently asked questions
           </span>
+<<<<<<< HEAD
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-display">
             Clear Answers to Your Questions
           </h2>
           <p className="text-zinc-400 text-sm md:text-base max-w-lg mx-auto">
+=======
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-headingText font-display">
+            Clear Answers to Your Questions
+          </h2>
+          <p className="text-bodyText text-sm md:text-base max-w-lg mx-auto">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
             Everything you need to know about purchasing, deploying, and running our pre-configured AI automation templates.
           </p>
         </div>
@@ -39,7 +46,11 @@ export default function FAQSection() {
             return (
               <div
                 key={idx}
+<<<<<<< HEAD
                 className="bg-card border border-zinc-800/80 rounded-xl overflow-hidden transition-all duration-300 hover:border-zinc-700/80"
+=======
+                className="bg-card border border-cardBorder/80 rounded-xl overflow-hidden transition-all duration-300 hover:border-zinc-700/80"
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
               >
                 {/* Header click bar */}
                 <button
@@ -52,7 +63,11 @@ export default function FAQSection() {
                     {faq.q}
                   </span>
                   
+<<<<<<< HEAD
                   <span className="p-1 rounded bg-zinc-800 text-zinc-400 group-hover:text-white shrink-0">
+=======
+                  <span className="p-1 rounded bg-zinc-800 text-bodyText group-hover:text-headingText shrink-0">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </span>
                 </button>
@@ -66,7 +81,11 @@ export default function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
+<<<<<<< HEAD
                       <div className="px-5 pb-5 text-zinc-450 border-t border-zinc-850 text-xs md:text-sm leading-relaxed text-zinc-400 pt-4">
+=======
+                      <div className="px-5 pb-5 text-zinc-450 border-t border-zinc-850 text-xs md:text-sm leading-relaxed text-bodyText pt-4">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
                         {faq.a}
                       </div>
                     </motion.div>

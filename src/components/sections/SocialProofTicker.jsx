@@ -17,7 +17,11 @@ export default function SocialProofTicker() {
   const doubleSnippets = [...snippets, ...snippets];
 
   return (
+<<<<<<< HEAD
     <div className="bg-zinc-950/60 border-y border-zinc-900/60 py-4.5 overflow-hidden animate-marquee-hover-pause">
+=======
+    <div className="bg-background/60 border-y border-cardBorder/60 py-4.5 overflow-hidden animate-marquee-hover-pause">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
       <div className="animate-marquee flex items-center space-x-12">
         {doubleSnippets.map((item, idx) => (
           <div key={idx} className="flex items-center space-x-3 shrink-0">
@@ -31,7 +35,11 @@ export default function SocialProofTicker() {
             </div>
 
             {/* Quote text */}
+<<<<<<< HEAD
             <span className="text-xs md:text-sm font-semibold tracking-tight text-white">
+=======
+            <span className="text-xs md:text-sm font-semibold tracking-tight text-headingText">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
               "{item.text}"
             </span>
 

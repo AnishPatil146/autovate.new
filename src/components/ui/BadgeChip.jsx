@@ -18,7 +18,7 @@ export default function BadgeChip({ text, type = 'default' }) {
         return 'text-secondary bg-gradient-to-r from-secondary/10 to-secondary/20 border border-secondary/30';
       default:
         // Default muted gray
-        return 'text-zinc-400 bg-zinc-800/80 border border-zinc-700/60';
+        return 'text-bodyText bg-zinc-800/80 border border-zinc-700/60';
     }
   };
 

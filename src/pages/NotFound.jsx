@@ -53,23 +53,23 @@ export default function NotFound() {
           </div>
 
           <div className="space-y-2 max-w-md mx-auto">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white font-display">
+            <h1 className="text-2xl sm:text-3xl font-bold text-headingText font-display">
               Automation Node Disconnected
             </h1>
-            <p className="text-zinc-400 text-xs sm:text-sm">
+            <p className="text-bodyText text-xs sm:text-sm">
               We couldn't find the page you are looking for. The node URL might be broken, or the page has moved.
             </p>
           </div>
 
           {/* Search bar */}
           <form onSubmit={handleSearchSubmit} className="relative w-full max-w-md mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 w-4 h-4" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-bodyText/70 w-4 h-4" />
             <input
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search 70+ automation bots..."
-              className="w-full pl-11 pr-24 py-3.5 bg-zinc-900 border border-zinc-800 rounded-full focus:outline-none focus:border-primary text-sm text-white placeholder-zinc-500 transition-colors"
+              className="w-full pl-11 pr-24 py-3.5 bg-card border border-cardBorder rounded-full focus:outline-none focus:border-primary text-sm text-headingText placeholder-zinc-500 transition-colors"
             />
             <button
               type="submit"
@@ -93,8 +93,8 @@ export default function NotFound() {
         {/* Most Popular Upsell */}
         <section className="space-y-6">
           <div className="text-center space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">Featured Marketplace Stacks</h3>
-            <p className="text-xs sm:text-sm text-zinc-500">Deploy our highest rated, verified automation bots.</p>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Featured Marketplace Stacks</h3>
+            <p className="text-xs sm:text-sm text-bodyText/70">Deploy our highest rated, verified automation bots.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

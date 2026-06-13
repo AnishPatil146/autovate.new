@@ -175,7 +175,7 @@ export default function Pricing() {
             <div className="lg:col-span-4 text-center lg:text-right">
               <Link
                 to="/consultation"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#202124] hover:bg-[#202124]/90 text-white font-bold font-sans uppercase tracking-wider rounded-full text-xs transition-all duration-300 shadow-md"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#202124] hover:bg-[#202124]/90 text-headingText font-bold font-sans uppercase tracking-wider rounded-full text-xs transition-all duration-300 shadow-md"
               >
                 Book Enterprise Audit Call
               </Link>

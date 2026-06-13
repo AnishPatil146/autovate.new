@@ -47,10 +47,10 @@ export default function Contact() {
           <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
             Support & consultations
           </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white font-display leading-none">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-headingText font-display leading-none">
             Get Automated Help
           </h1>
-          <p className="text-zinc-400 text-sm md:text-base">
+          <p className="text-bodyText text-sm md:text-base">
             Reach out to our solution architects. Book a strategy consultation, open a support ticket, or chat directly via WhatsApp.
           </p>
         </div>
@@ -59,11 +59,11 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-card border border-zinc-900 rounded-3xl p-6 md:p-8 space-y-6">
+          <div className="lg:col-span-7 bg-card border border-cardBorder rounded-3xl p-6 md:p-8 space-y-6">
             
             <div className="text-left space-y-2 border-b border-zinc-850 pb-4">
-              <h3 className="text-xl font-bold font-display text-white">Send a Message</h3>
-              <p className="text-xs text-zinc-500">We respond to support tickets and custom requests in under 2 hours.</p>
+              <h3 className="text-xl font-bold font-display text-headingText">Send a Message</h3>
+              <p className="text-xs text-bodyText/70">We respond to support tickets and custom requests in under 2 hours.</p>
             </div>
 
             {!isSubmitted ? (
@@ -71,46 +71,46 @@ export default function Contact() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-xs font-mono text-zinc-450 text-zinc-400">Full Name *</label>
+                    <label className="text-xs font-mono text-zinc-450 text-bodyText">Full Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Jane Doe"
-                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white transition-colors"
+                      className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText transition-colors"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-mono text-zinc-450 text-zinc-400">Work Email *</label>
+                    <label className="text-xs font-mono text-zinc-450 text-bodyText">Work Email *</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="jane@company.com"
-                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white transition-colors"
+                      className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-xs font-mono text-zinc-450 text-zinc-400">Company Name</label>
+                    <label className="text-xs font-mono text-zinc-450 text-bodyText">Company Name</label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Apex Digital"
-                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white transition-colors"
+                      className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText transition-colors"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-mono text-zinc-450 text-zinc-400">Related Bot Blueprint</label>
+                    <label className="text-xs font-mono text-zinc-450 text-bodyText">Related Bot Blueprint</label>
                     <select
                       value={formData.bot}
                       onChange={(e) => setFormData({ ...formData, bot: e.target.value })}
-                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-zinc-300 transition-colors cursor-pointer"
+                      className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-zinc-300 transition-colors cursor-pointer"
                     >
                       <option value="general">General Strategy Question</option>
                       <option value="custom">Custom Build Request</option>
@@ -122,14 +122,14 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-mono text-zinc-450 text-zinc-400">How can we help your operations? *</label>
+                  <label className="text-xs font-mono text-zinc-450 text-bodyText">How can we help your operations? *</label>
                   <textarea
                     rows="5"
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your current manual workflow bottleneck..."
-                    className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-primary text-sm text-white placeholder-zinc-550 transition-colors"
+                    className="w-full px-4 py-3 bg-card border border-cardBorder rounded-xl focus:outline-none focus:border-primary text-sm text-headingText placeholder-zinc-550 transition-colors"
                   ></textarea>
                 </div>
 
@@ -154,14 +154,14 @@ export default function Contact() {
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-white font-display">Ticket Filed Successfully!</h3>
-                  <p className="text-zinc-400 text-xs max-w-sm mx-auto">
+                  <h3 className="text-lg font-bold text-headingText font-display">Ticket Filed Successfully!</h3>
+                  <p className="text-bodyText text-xs max-w-sm mx-auto">
                     Message received! We have dispatched a confirmation email and will follow up within 2 business hours.
                   </p>
                 </div>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2.5 bg-zinc-800 text-white rounded-full text-xs font-medium hover:bg-zinc-700 transition-colors"
+                  className="px-6 py-2.5 bg-zinc-800 text-headingText rounded-full text-xs font-medium hover:bg-zinc-700 transition-colors"
                 >
                   Submit Another Inquiry
                 </button>
@@ -174,7 +174,7 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-8">
             
             {/* WhatsApp CTA */}
-            <div className="bg-[#111116] border border-cardBorder rounded-3xl p-6 text-left space-y-4">
+            <div className="bg-card border border-cardBorder rounded-3xl p-6 text-left space-y-4">
               <div className="flex items-center space-x-3 text-[#25D366]">
                 <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill="#FFF" d="M12.003 21c-1.74 0-3.41-.49-4.86-1.4l-.35-.22-3.61.95.96-3.52-.24-.38A9.87 9.87 0 0 1 2.15 11.19c.005-5.46 4.45-9.9 9.91-9.9 2.65 0 5.14 1.03 7.01 2.9a9.83 9.83 0 0 1 2.91 7.02c-.005 5.46-4.45 9.9-9.91 9.9h-.07z" style={{ fill: '#25D366' }} />
@@ -182,7 +182,7 @@ export default function Contact() {
                 </svg>
                 <h4 className="font-bold text-white font-display text-sm">Direct WhatsApp Helpline</h4>
               </div>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-bodyText text-xs leading-relaxed">
                 Need answers right away? Chat with a solutions architect. Send us a message on our business WhatsApp hotline.
               </p>
               <a
@@ -196,22 +196,22 @@ export default function Contact() {
             </div>
 
             {/* Calendly Embed Placeholder */}
-            <div className="bg-neutralDark/40 border border-zinc-800 rounded-3xl p-6 text-left space-y-4">
+            <div className="bg-neutralDark/40 border border-cardBorder rounded-3xl p-6 text-left space-y-4">
               <div className="flex items-center space-x-3 text-primary">
                 <Calendar className="w-6 h-6" />
-                <h4 className="font-bold text-white font-display text-sm">Calendly Scheduler</h4>
+                <h4 className="font-bold text-headingText font-display text-sm">Calendly Scheduler</h4>
               </div>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-bodyText text-xs leading-relaxed">
                 Book a 15-minute screen-share call. Let us review your operational stack and suggest the best bots.
               </p>
               
               {/* Calendly Placeholder Mockup */}
-              <div className="p-4 bg-zinc-950/80 border border-zinc-900 rounded-xl text-center space-y-2">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase">Consultant Availability</span>
-                <div className="font-bold text-xs text-white font-display">Available Today: 4 Slots Open</div>
+              <div className="p-4 bg-background/80 border border-cardBorder rounded-xl text-center space-y-2">
+                <span className="text-[10px] font-mono text-bodyText/70 uppercase">Consultant Availability</span>
+                <div className="font-bold text-xs text-headingText font-display">Available Today: 4 Slots Open</div>
                 <button
                   onClick={() => alert("Calendly Embed Open: In production, insert your Calendly inline embed code here.")}
-                  className="px-4 py-2 bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 text-zinc-300 hover:text-white rounded-lg text-[10px] font-mono uppercase tracking-wider w-full"
+                  className="px-4 py-2 bg-card hover:bg-zinc-850 border border-cardBorder text-zinc-300 hover:text-headingText rounded-lg text-[10px] font-mono uppercase tracking-wider w-full"
                 >
                   Schedule Strategy Session
                 </button>
@@ -221,12 +221,12 @@ export default function Contact() {
             {/* Support FAQs */}
             <div className="space-y-3">
               {contactFaqs.map((faq, idx) => (
-                <div key={idx} className="bg-card border border-zinc-900 p-4 rounded-2xl text-left space-y-2">
-                  <h4 className="font-bold text-white font-display text-xs flex items-center">
+                <div key={idx} className="bg-card border border-cardBorder p-4 rounded-2xl text-left space-y-2">
+                  <h4 className="font-bold text-headingText font-display text-xs flex items-center">
                     <HelpCircle className="w-3.5 h-3.5 text-primary mr-2 shrink-0" />
                     {faq.q}
                   </h4>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">{faq.a}</p>
+                  <p className="text-bodyText text-[11px] leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>

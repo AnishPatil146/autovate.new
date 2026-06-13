@@ -21,8 +21,8 @@ export default function ROICalculator() {
         {/* Left Side: Inputs */}
         <div className="space-y-6">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold font-display text-white">ROI Calculator</h3>
-            <p className="text-sm text-zinc-400">
+            <h3 className="text-xl font-bold font-display text-headingText">ROI Calculator</h3>
+            <p className="text-sm text-bodyText">
               Calculate how much time and capital your business is losing on manual workflows.
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function ROICalculator() {
               onChange={(e) => setHours(Number(e.target.value))}
               className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary"
             />
-            <div className="flex justify-between text-[10px] text-zinc-500 font-mono">
+            <div className="flex justify-between text-[10px] text-bodyText/70 font-mono">
               <span>2 hours</span>
               <span>30 hours</span>
               <span>60 hours</span>
@@ -66,7 +66,7 @@ export default function ROICalculator() {
               onChange={(e) => setRate(Number(e.target.value))}
               className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary"
             />
-            <div className="flex justify-between text-[10px] text-zinc-500 font-mono">
+            <div className="flex justify-between text-[10px] text-bodyText/70 font-mono">
               <span>$15/hr</span>
               <span>$80/hr</span>
               <span>$150/hr</span>
@@ -75,14 +75,14 @@ export default function ROICalculator() {
         </div>
 
         {/* Right Side: Math Results & Conversion CTA */}
-        <div className="bg-zinc-900/80 border border-zinc-800 rounded-xl p-6 text-center space-y-4">
+        <div className="bg-card/80 border border-cardBorder rounded-xl p-6 text-center space-y-4">
           <div className="space-y-1">
-            <p className="text-xs uppercase tracking-wider font-mono text-zinc-500">Current Cost of Busywork</p>
+            <p className="text-xs uppercase tracking-wider font-mono text-bodyText/70">Current Cost of Busywork</p>
             <div className="text-4xl font-bold font-mono text-secondary">
-              ${monthlyLoss.toLocaleString()}<span className="text-lg font-normal text-zinc-400">/mo</span>
+              ${monthlyLoss.toLocaleString()}<span className="text-lg font-normal text-bodyText">/mo</span>
             </div>
-            <p className="text-xs text-zinc-400">
-              Or <span className="text-white font-bold">${yearlyLoss.toLocaleString()}/year</span> lost to repetitive tasks.
+            <p className="text-xs text-bodyText">
+              Or <span className="text-headingText font-bold">${yearlyLoss.toLocaleString()}/year</span> lost to repetitive tasks.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function ROICalculator() {
           <div className="space-y-2 text-sm text-zinc-300">
             <div className="flex justify-between">
               <span>Average Bot Cost:</span>
-              <span className="font-mono text-white font-bold">${averageBotCost} (One-Time)</span>
+              <span className="font-mono text-headingText font-bold">${averageBotCost} (One-Time)</span>
             </div>
             <div className="flex justify-between">
               <span>Break-Even Time:</span>
@@ -100,7 +100,7 @@ export default function ROICalculator() {
           </div>
 
           <div className="pt-2">
-            <div className="text-xs text-zinc-400 mb-3 bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-800/80">
+            <div className="text-xs text-bodyText mb-3 bg-background/60 p-2.5 rounded-lg border border-cardBorder/80">
               You are losing <span className="text-red-500 font-bold">${monthlyLoss}</span> every month. Reclaim it today.
             </div>
             <Link

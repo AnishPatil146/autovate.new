@@ -12,7 +12,11 @@ export default function TestimonialsSection() {
     : testimonialsData.filter(t => t.industry === activeTab);
 
   return (
+<<<<<<< HEAD
     <section className="py-24 bg-zinc-950/20 border-y border-zinc-900 relative">
+=======
+    <section className="py-24 bg-background/20 border-y border-cardBorder relative">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -21,7 +25,11 @@ export default function TestimonialsSection() {
             <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold flex items-center">
               <Sparkles className="w-3.5 h-3.5 mr-1.5 text-primary" /> Proven Client Outcomes
             </span>
+<<<<<<< HEAD
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-display">
+=======
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-headingText font-display">
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
               Loved by Operation Leads & Founders
             </h2>
           </div>
@@ -35,7 +43,11 @@ export default function TestimonialsSection() {
                 className={`px-4 py-2 rounded-full text-xs font-medium font-display whitespace-nowrap transition-all border ${
                   activeTab === ind
                     ? 'bg-primary border-primary text-black font-semibold'
+<<<<<<< HEAD
                     : 'bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
+=======
+                    : 'bg-card/60 border-cardBorder text-bodyText hover:text-headingText hover:border-zinc-700'
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
                 }`}
               >
                 {ind}
@@ -77,8 +89,13 @@ export default function TestimonialsSection() {
                   className="w-10 h-10 rounded-full border border-primary/20 object-cover"
                 />
                 <div className="text-left">
+<<<<<<< HEAD
                   <h4 className="text-xs font-bold text-white font-display">{item.user}</h4>
                   <p className="text-[10px] text-zinc-500">{item.role}</p>
+=======
+                  <h4 className="text-xs font-bold text-headingText font-display">{item.user}</h4>
+                  <p className="text-[10px] text-bodyText/70">{item.role}</p>
+>>>>>>> 7c7a27fe6b08e8e9b9a8c72288108a8a9639bc98
                 </div>
                 
                 {/* Impact Metric tag */}

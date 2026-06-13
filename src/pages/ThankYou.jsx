@@ -45,24 +45,24 @@ export default function ThankYou() {
           </div>
 
           <div className="space-y-2 max-w-xl mx-auto">
-            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">ORDER COMPLETED</span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white font-display leading-none">
+            <span className="text-[10px] font-mono text-bodyText/70 uppercase tracking-widest block">ORDER COMPLETED</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-headingText font-display leading-none">
               Your Setup Files Are Ready
             </h1>
-            <p className="text-zinc-400 text-xs sm:text-sm">
-              Thank you for purchasing the <span className="text-white font-bold">{botName} (${botPrice})</span>. The blueprints, API connectors, and video configuration checklists have been dispatched to your email.
+            <p className="text-bodyText text-xs sm:text-sm">
+              Thank you for purchasing the <span className="text-headingText font-bold">{botName} (${botPrice})</span>. The blueprints, API connectors, and video configuration checklists have been dispatched to your email.
             </p>
           </div>
 
           <div className="h-px bg-zinc-800 max-w-md mx-auto"></div>
 
           {/* Discord CTA */}
-          <div className="max-w-sm mx-auto p-4 bg-zinc-950/60 border border-zinc-900 rounded-2xl flex items-center justify-between">
+          <div className="max-w-sm mx-auto p-4 bg-background/60 border border-cardBorder rounded-2xl flex items-center justify-between">
             <div className="flex items-center space-x-3 text-left">
               <MessageSquare className="w-5 h-5 text-primary shrink-0" />
               <div>
-                <h4 className="text-xs font-bold text-white font-display">Join Customer Discord</h4>
-                <p className="text-[9px] text-zinc-550 text-zinc-550 text-zinc-500">2,400+ automation developers</p>
+                <h4 className="text-xs font-bold text-headingText font-display">Join Customer Discord</h4>
+                <p className="text-[9px] text-zinc-550 text-zinc-550 text-bodyText/70">2,400+ automation developers</p>
               </div>
             </div>
             
@@ -70,7 +70,7 @@ export default function ThankYou() {
               href="https://discord.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-1.5 bg-zinc-900 border border-zinc-800 text-[10px] font-mono uppercase tracking-wider text-primary rounded-lg hover:bg-zinc-850"
+              className="px-3.5 py-1.5 bg-card border border-cardBorder text-[10px] font-mono uppercase tracking-wider text-primary rounded-lg hover:bg-zinc-850"
             >
               Join
             </a>
@@ -80,39 +80,39 @@ export default function ThankYou() {
 
         {/* 3 Next Steps to Go Live */}
         <section className="space-y-6 text-left">
-          <div className="space-y-2 border-b border-zinc-900 pb-4 max-w-xl">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">Next Steps to Go Live</h3>
-            <p className="text-xs sm:text-sm text-zinc-500">Follow these 3 actions to deploy your bot blueprint in under 15 minutes.</p>
+          <div className="space-y-2 border-b border-cardBorder pb-4 max-w-xl">
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Next Steps to Go Live</h3>
+            <p className="text-xs sm:text-sm text-bodyText/70">Follow these 3 actions to deploy your bot blueprint in under 15 minutes.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="bg-card border border-zinc-900 p-6 rounded-2xl space-y-3">
+            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
               <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center font-mono text-xs text-primary font-bold">1</span>
-                <h4 className="font-bold text-white font-display text-xs">Verify Email Inbox</h4>
+                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">1</span>
+                <h4 className="font-bold text-headingText font-display text-xs">Verify Email Inbox</h4>
               </div>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-bodyText text-xs leading-relaxed">
                 Open the confirmation email from Autovate. It contains your download links for the blueprints (.json or .zip format).
               </p>
             </div>
 
-            <div className="bg-card border border-zinc-900 p-6 rounded-2xl space-y-3">
+            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
               <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center font-mono text-xs text-primary font-bold">2</span>
-                <h4 className="font-bold text-white font-display text-xs">Import configuration File</h4>
+                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">2</span>
+                <h4 className="font-bold text-headingText font-display text-xs">Import configuration File</h4>
               </div>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-bodyText text-xs leading-relaxed">
                 Log into Make.com or Zapier. Select 'Import Blueprint' and load the downloaded file. It maps all nodes automatically.
               </p>
             </div>
 
-            <div className="bg-card border border-zinc-900 p-6 rounded-2xl space-y-3">
+            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
               <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center font-mono text-xs text-primary font-bold">3</span>
-                <h4 className="font-bold text-white font-display text-xs">Paste API Keys & Connect</h4>
+                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">3</span>
+                <h4 className="font-bold text-headingText font-display text-xs">Paste API Keys & Connect</h4>
               </div>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-bodyText text-xs leading-relaxed">
                 Open the variables tab. Paste your API keys (like OpenAI or Twilio) into the labeled fields. Hit run to start automating.
               </p>
             </div>
@@ -123,8 +123,8 @@ export default function ThankYou() {
         {/* Recommended Stack Additions (Upsell Grid) */}
         <section className="space-y-6">
           <div className="text-left space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">Recommended Stack Additions</h3>
-            <p className="text-xs sm:text-sm text-zinc-500">Deploy these complementary blueprints to further scale your operations.</p>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Recommended Stack Additions</h3>
+            <p className="text-xs sm:text-sm text-bodyText/70">Deploy these complementary blueprints to further scale your operations.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
