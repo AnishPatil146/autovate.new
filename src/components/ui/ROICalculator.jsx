@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DollarSign, Clock, HelpCircle, ArrowRight } from 'lucide-react';
+import { DollarSign, Clock, ArrowRight } from 'lucide-react';
+import GradientButton from './GradientButton';
 
 export default function ROICalculator() {
   const [hours, setHours] = useState(15);
@@ -103,12 +104,14 @@ export default function ROICalculator() {
             <div className="text-xs text-bodyText mb-3 bg-background/60 p-2.5 rounded-lg border border-cardBorder/80">
               You are losing <span className="text-red-500 font-bold">${monthlyLoss}</span> every month. Reclaim it today.
             </div>
-            <Link
+            <GradientButton
               to={`/diagnosis?hours=${hours}&rate=${rate}`}
-              className="inline-flex w-full items-center justify-center px-5 py-3 bg-primary text-black font-semibold rounded-full hover:bg-primary/90 transition-colors group font-display text-sm"
+              size="md"
+              fullWidth
+              iconRight={<ArrowRight className="w-4 h-4" />}
             >
-              Find Your Solution Bot <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              Find Your Solution Bot
+            </GradientButton>
           </div>
         </div>
       </div>

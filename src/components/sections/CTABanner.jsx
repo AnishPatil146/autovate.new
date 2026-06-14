@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, HelpCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import GradientButton from '../ui/GradientButton';
 
 export default function CTABanner() {
   return (
@@ -29,19 +29,23 @@ export default function CTABanner() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Link
+            <GradientButton
               to="/marketplace"
-              className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-primary text-black font-semibold rounded-full shadow-glow hover:bg-primary/95 transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display group"
+              size="md"
+              iconRight={<ArrowRight className="w-4 h-4" />}
+              className="w-full sm:w-auto"
             >
-              Start Automating Today <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              Start Automating Today
+            </GradientButton>
             
-            <Link
+            <GradientButton
               to="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-card border border-cardBorder hover:border-zinc-700 text-zinc-300 hover:text-headingText font-semibold rounded-full transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display"
+              size="md"
+              variant="outline"
+              className="w-full sm:w-auto"
             >
               Talk to a Solutions Architect
-            </Link>
+            </GradientButton>
           </div>
 
           <div className="pt-2 text-bodyText/70 text-xs font-mono flex items-center justify-center space-x-6">

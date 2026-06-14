@@ -18,9 +18,8 @@
   h4,
   h5,
   h6 {
-
     font-family: var(--font-display);
-    color: var(--color-text);
+    color: var(--color-heading);
   }
 }
 
@@ -46,7 +45,7 @@
 /* Subtle background grid override */
 .grid-bg-glow {
   background-image:
-    radial-gradient(circle at 50% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
     linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 100% 100%, 48px 48px, 48px 48px;
@@ -154,8 +153,183 @@
 }
 
 .animate-hero-bg {
-  background: radial-gradient(circle at 20% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(255, 77, 0, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.10) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
+}
+
+/* ===== COLORFUL GRADIENT BUTTONS ===== */
+
+/* Animated gradient button - slides gradient on hover */
+@keyframes gradientSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #F97316 100%);
+  background-size: 200% 200%;
+  animation: gradientSlide 4s ease infinite;
+  color: white;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35), 0 2px 8px rgba(236, 72, 153, 0.2);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5), 0 4px 16px rgba(236, 72, 153, 0.3);
+}
+
+/* Outline gradient button */
+.btn-gradient-outline {
+  background: transparent;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gradient-outline::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #A855F7, #EC4899, #F97316);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-gradient-outline:hover {
+  background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.1));
+}
+
+/* Colorful card gradient border on hover */
+.card-colorful {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-colorful:hover {
+  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.5), 0 8px 32px rgba(168, 85, 247, 0.15), 0 4px 16px rgba(236, 72, 153, 0.1);
+}
+
+/* Rainbow shimmer card accent */
+.card-rainbow-accent {
+  background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(236,72,153,0.05) 50%, rgba(249,115,22,0.05) 100%);
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, #A855F7 0%, #EC4899 60%, #F97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ===================================================================
+   GRADIENT BUTTON — Glowing Border Design  (GradientButton.jsx)
+   ===================================================================
+   .gb-wrap   → outer wrapper: 3px gradient border (cyan → pink)
+   .gb-inner  → inner button/link: solid dark background
+   .gb-wrap::before → absolute blur glow that appears on hover
+   =================================================================== */
+
+/* ── Outer gradient-border wrapper ── */
+.gb-wrap {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  background: linear-gradient(90deg, #EA4335, #1A73E8, #34A853);
+  border-radius: 0.9em;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.gb-full {
+  display: flex;
+  width: 100%;
+}
+
+.gb-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Blurred glow bloom (behind the wrapper) ── */
+.gb-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.9em;
+  background: linear-gradient(90deg, #EA4335, #1A73E8, #34A853);
+  z-index: -1;
+  filter: blur(0);
+  transition: filter 0.4s ease;
+}
+
+.gb-wrap:hover::before {
+  filter: blur(1.2em);
+}
+
+.gb-wrap:active::before {
+  filter: blur(0.2em);
+}
+
+/* ── Inner button / link element ── */
+.gb-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.gb-inner:hover {
+  background-color: #0a0a0a;
+}
+
+/* ── Size variants ── */
+.gb-sm {
+  font-size: 0.78rem;
+  padding: 0.45em 0.75em;
+  border-radius: 0.45em;
+}
+
+.gb-md {
+  font-size: 0.875rem;
+  padding: 0.6em 1.1em;
+  border-radius: 0.5em;
+}
+
+.gb-lg {
+  font-size: 1rem;
+  padding: 0.75em 1.4em;
+  border-radius: 0.55em;
+}
+
+/* ── Icon spacing ── */
+.gb-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }

@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import WhatsAppButton from './components/ui/WhatsAppButton';
+import FontColorShuffler from './components/ui/FontColorShuffler';
+import WelcomeIntro from './components/ui/WelcomeIntro';
 import { CheckoutProvider } from './context/CheckoutContext';
 
 // Pages
@@ -52,6 +54,19 @@ function RouteTracker() {
 
 export default function App() {
   const { scrollYProgress } = useScroll();
+  const [introCompleted, setIntroCompleted] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasPlayed = sessionStorage.getItem('autovate-intro-played');
+      return prefersReducedMotion || !!hasPlayed;
+    }
+    return false;
+  });
+
+  const handleIntroComplete = () => {
+    sessionStorage.setItem('autovate-intro-played', 'true');
+    setIntroCompleted(true);
+  };
 
   // Initialize analytics and theme on mount
   useEffect(() => {
@@ -69,7 +84,7 @@ export default function App() {
         } else {
           document.documentElement.classList.remove('theme-light');
         }
-      } catch (e) {
+      } catch {
         document.documentElement.classList.remove('theme-light');
       }
     };
@@ -86,7 +101,19 @@ export default function App() {
     <Router>
       <RouteTracker />
       <CheckoutProvider>
-        <div className="flex flex-col min-h-screen bg-background text-bodyText">
+        <AnimatePresence>
+          {!introCompleted && (
+            <WelcomeIntro onComplete={handleIntroComplete} />
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          initial={introCompleted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
+          animate={introCompleted ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col min-h-screen bg-background text-bodyText origin-center"
+        >
+
           {/* Scroll progress bar */}
           <motion.div
             className="fixed top-0 left-0 right-0 h-[2px] bg-tertiary z-50 origin-left"
@@ -122,7 +149,8 @@ export default function App() {
 
           {/* Floating conversion triggers */}
           <WhatsAppButton />
-        </div>
+          <FontColorShuffler />
+        </motion.div>
       </CheckoutProvider>
     </Router>
   );

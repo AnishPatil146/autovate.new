@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { SEOPage } from '../utils/seoHelper';
 import ROICalculator from '../components/ui/ROICalculator';
+import GradientButton from '../components/ui/GradientButton';
 import { 
   Phone, MessageCircle, Users, Target, Zap, GitBranch, 
   Clock, Link2, Rocket, PenTool, Wrench, CheckCircle, 
@@ -96,9 +97,9 @@ const pillItem = {
 function PulseStat() {
   return (
     <motion.span
-      animate={{ color: ['#005CEB', '#ffffff', '#005CEB'] }}
-      transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut' }}
-      style={{ textShadow: '0px 1px 2px rgba(0,0,0,0.15)' }}
+      animate={{ color: ['#A855F7', '#EC4899', '#F97316', '#A855F7'] }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      style={{ textShadow: '0px 1px 8px rgba(168,85,247,0.3)' }}
       className="text-5xl font-black font-display block"
     >
       24/7
@@ -463,13 +464,15 @@ export default function Home() {
               transition={{ duration: 0.4, delay: 0.65, ease: easeOutCubic }}
               className="w-full sm:w-auto"
             >
-              <Link
+              <GradientButton
                 to="/consultation"
-                className="relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full shadow-md text-sm uppercase tracking-wide gap-2 group btn-shimmer"
+                size="md"
+                icon={<CalendarCheck className="w-4 h-4" />}
+                className="w-full sm:w-auto btn-shimmer"
+                id="hero-primary-cta"
               >
-                <CalendarCheck className="w-4 h-4" />
                 Book 30-Min Consultation
-              </Link>
+              </GradientButton>
             </motion.div>
             
             <motion.a
@@ -755,14 +758,13 @@ export default function Home() {
               We design and deploy bespoke custom integrations that work together with your existing software stack.
             </h3>
           </div>
-          <motion.div whileHover={{ scale: 1.03, brightness: 1.08 }} transition={{ duration: 0.15 }}>
-            <Link
-              to="/consultation"
-              className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold font-sans rounded-full transition-all text-xs uppercase tracking-wider"
-            >
-              Audit My Stack <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </motion.div>
+          <GradientButton
+            to="/consultation"
+            size="sm"
+            iconRight={<ArrowRight className="w-4 h-4" />}
+          >
+            Audit My Stack
+          </GradientButton>
         </div>
       </section>
 
@@ -1268,14 +1270,13 @@ export default function Home() {
                   <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary shrink-0" /> 90 days Dedicated Slack support</li>
                 </ul>
                 <div className="pt-2">
-                  <motion.div whileHover={{ scale: 1.03, brightness: 1.08 }} transition={{ duration: 0.15 }}>
-                    <Link
-                      to="/consultation"
-                      className="block w-full py-3 bg-primary hover:bg-primary/90 text-white text-center font-bold font-sans rounded-lg text-xs uppercase tracking-wider"
-                    >
-                      Select Standard Suite
-                    </Link>
-                  </motion.div>
+                  <GradientButton
+                    to="/consultation"
+                    size="sm"
+                    fullWidth
+                  >
+                    Select Standard Suite
+                  </GradientButton>
                 </div>
               </div>
             </motion.div>
@@ -1363,15 +1364,14 @@ export default function Home() {
             {...fadeUpVariants(0.2, 24)}
             className="pt-4"
           >
-            <motion.div whileHover={{ scale: 1.03, brightness: 1.08 }} transition={{ duration: 0.15 }} className="inline-block">
-              <Link
+              <GradientButton
                 to="/consultation"
-                className="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold font-sans rounded-full shadow-md text-sm uppercase tracking-wide gap-2.5 group btn-shimmer"
+                size="lg"
+                icon={<CalendarCheck className="w-5 h-5" />}
+                className="btn-shimmer"
               >
-                <CalendarCheck className="w-5 h-5" />
                 Book 30-Min Consultation Call
-              </Link>
-            </motion.div>
+              </GradientButton>
           </motion.div>
 
         </div>

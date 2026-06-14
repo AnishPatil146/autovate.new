@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 
 export default function CounterStat({ target, suffix = '', duration = 1500 }) {
   const [count, setCount] = useState(0);
@@ -39,13 +39,14 @@ export default function CounterStat({ target, suffix = '', duration = 1500 }) {
       { threshold: 0.2 }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    const el = elementRef.current;
+    if (el) {
+      observer.observe(el);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (el) {
+        observer.unobserve(el);
       }
     };
   }, [target, duration]);

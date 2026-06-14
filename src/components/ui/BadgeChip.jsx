@@ -1,5 +1,4 @@
-import React from 'react';
-
+﻿
 export default function BadgeChip({ text, type = 'default' }) {
   const getClasses = () => {
     switch (type) {

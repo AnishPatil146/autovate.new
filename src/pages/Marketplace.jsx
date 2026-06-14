@@ -1,85 +1,103 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Cpu, Cloud, Activity, Megaphone, Compass, GraduationCap, DollarSign, Scale, 
-  ShoppingCart, Home as HomeIcon, HeartPulse, TrendingUp, Coins, Users, Brain, 
-  Search, X, Check, ArrowRight, ChevronDown, ChevronUp, Sparkles, Info,
-  Database, Phone, User, Share2, Radio, Sun, Moon
+  Search, X, Check, ArrowRight, ChevronDown, ChevronUp, Info, Sun, Moon,
+  Cpu, Cloud, Activity, Megaphone, Compass, GraduationCap, DollarSign, Scale, ShoppingCart, Home as HomeIcon,
+  HeartPulse, TrendingUp, Coins, Users, Brain, Sparkles, RotateCcw, MessageSquare, Zap, Terminal,
+  Code, Globe, Layers, Server, Shield, Key, Lock, Eye, Map, Mail,
+  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, Link, Anchor,
+  Award, Bookmark, Briefcase, Calendar, Camera, Cast, Clock, Copy, Download, Upload,
+  ExternalLink, Feather, Gift, Grid, Inbox, Laptop, List, Monitor, Music, Package,
+  Paperclip, Percent, Pin, Play, Power, Save, Send, Shuffle, Star, Target,
+  Wrench, Trash2, Truck, Tv, Video, Wifi, Volume2, Heart, Bell, Book,
+  MapPin, HelpCircle, AlertCircle, GitBranch, HardDrive, Hash, Layout, BookOpen, FolderOpen, CheckCircle,
+  Database, Phone, User, Share2, Radio
 } from 'lucide-react';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
 import { SEOPage } from '../utils/seoHelper';
 import { useCheckout } from '../context/CheckoutContext';
 import StarRating from '../components/ui/StarRating';
+import GradientButton from '../components/ui/GradientButton';
+import BuyNowButton from '../components/ui/BuyNowButton';
+
+// 90 unique Lucide icons (excluding the 5 special ones used specifically for key bots)
+const REMAINING_ICONS = [
+  Cpu, Cloud, Activity, Megaphone, Compass, GraduationCap, DollarSign, Scale, ShoppingCart, HomeIcon,
+  HeartPulse, TrendingUp, Coins, Users, Brain, Sparkles, RotateCcw, MessageSquare, Zap, Terminal,
+  Code, Globe, Layers, Server, Shield, Key, Lock, Eye, Map, Mail,
+  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, Link, Anchor,
+  Award, Bookmark, Briefcase, Calendar, Camera, Cast, Clock, Copy, Download, Upload,
+  ExternalLink, Feather, Gift, Grid, Inbox, Laptop, List, Monitor, Music, Package,
+  Paperclip, Percent, Pin, Play, Power, Save, Send, Shuffle, Star, Target,
+  Wrench, Trash2, Truck, Tv, Video, Wifi, Volume2, Heart, Bell, Book,
+  MapPin, HelpCircle, AlertCircle, GitBranch, HardDrive, Hash, Layout, BookOpen, FolderOpen, CheckCircle
+];
+
+// Statically compile list of non-special products so indexes are fixed and stable
+const nonSpecialProducts = productsData.filter(p => {
+  const n = p.name.toLowerCase();
+  const s = p.slug.toLowerCase();
+  return !(
+    s === 'whatsapp-ai-bot' || n.includes('whatsapp') ||
+    s === 'b2b-scraper' || n.includes('scraper') ||
+    s === 'ai-voice-caller' || n.includes('voice') || n.includes('caller') || n.includes('phone') ||
+    s === 'omni-channel-bot' || n.includes('omni') ||
+    s === 'social-pilot' || n.includes('social') || n.includes('pilot') ||
+    s === 'crm-enricher' || n.includes('crm') || n.includes('enricher')
+  );
+});
 
 // Dynamic Card Header styles and icons mapping to match the beige-pastel aesthetic
 const getProductHeaderStyles = (product) => {
-  if (!product) return { bg: 'bg-zinc-100', icon: <Cpu className="w-12 h-12 text-zinc-500 stroke-[1.5]" /> };
+  if (!product) return { bgStyle: { backgroundColor: '#f4f4f5' }, icon: <Cpu className="w-12 h-12 text-zinc-500 stroke-[1.5]" /> };
+  
   const name = product.name.toLowerCase();
   const slug = product.slug.toLowerCase();
+
+  // Find index of the product in the global database (static array)
+  const globalIdx = productsData.findIndex(p => p.id === product.id);
+  const hue = (globalIdx !== -1 ? globalIdx : 0) * 137 % 360;
+
+  // Compute a highly aesthetic pastel background and high-contrast stroke color
+  const bgStyle = { backgroundColor: `hsl(${hue}, 85%, 96%)` };
+  const iconColor = `hsl(${hue}, 90%, 45%)`;
   
-  // Custom WhatsApp icon SVG path
+  // Custom WhatsApp icon SVG path using the dynamic color
   const whatsappSvg = (
-    <svg className="w-12 h-12 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-12 h-12" style={{ color: iconColor }} viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.459h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
     </svg>
   );
 
-  // Exact mappings matching the screenshot
+  // Special mappings (using their specific unique icons, but styled with dynamic unique colors)
   if (slug === 'whatsapp-ai-bot' || name.includes('whatsapp')) {
-    return { bg: 'bg-[#E8F8F0]', icon: whatsappSvg };
+    return { bgStyle, icon: whatsappSvg };
   }
   if (slug === 'b2b-scraper' || name.includes('scraper')) {
-    return { bg: 'bg-[#EAF2FF]', icon: <Database className="w-12 h-12 text-[#0052FF] stroke-[1.5]" /> };
+    return { bgStyle, icon: <Database className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
   if (slug === 'ai-voice-caller' || name.includes('voice') || name.includes('caller') || name.includes('phone')) {
-    return { bg: 'bg-[#FFF9E6]', icon: <Phone className="w-12 h-12 text-[#FF6B00] stroke-[1.5]" /> };
+    return { bgStyle, icon: <Phone className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
   if (slug === 'omni-channel-bot' || name.includes('omni')) {
-    return { bg: 'bg-[#F5E6FF]', icon: <Share2 className="w-12 h-12 text-[#8B5CF6] stroke-[1.5]" /> };
+    return { bgStyle, icon: <Share2 className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
   if (slug === 'social-pilot' || name.includes('social') || name.includes('pilot')) {
-    return { bg: 'bg-[#E8F8F0]', icon: <Radio className="w-12 h-12 text-[#00ACC1] stroke-[1.5]" /> };
+    return { bgStyle, icon: <Radio className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
   if (slug === 'crm-enricher' || name.includes('crm') || name.includes('enricher')) {
-    return { bg: 'bg-[#EAF2FF]', icon: <User className="w-12 h-12 text-[#0052FF] stroke-[1.5]" /> };
+    return { bgStyle, icon: <User className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
 
-  // Fallbacks by category
-  switch (product.category) {
-    case 'core-bots':
-      return { bg: 'bg-[#E8F8F0]', icon: <Cpu className="w-12 h-12 text-[#25D366] stroke-[1.5]" /> };
-    case 'saas':
-      return { bg: 'bg-[#EAF2FF]', icon: <Cloud className="w-12 h-12 text-[#0052FF] stroke-[1.5]" /> };
-    case 'fitness':
-      return { bg: 'bg-[#FFEBE5]', icon: <Activity className="w-12 h-12 text-[#FF6B00] stroke-[1.5]" /> };
-    case 'marketing':
-      return { bg: 'bg-[#FFF9E6]', icon: <Megaphone className="w-12 h-12 text-[#FFB300] stroke-[1.5]" /> };
-    case 'travel':
-      return { bg: 'bg-[#E0F7FA]', icon: <Compass className="w-12 h-12 text-[#00ACC1] stroke-[1.5]" /> };
-    case 'education':
-      return { bg: 'bg-[#F5E6FF]', icon: <GraduationCap className="w-12 h-12 text-[#8B5CF6] stroke-[1.5]" /> };
-    case 'finance':
-      return { bg: 'bg-[#E8F8F0]', icon: <DollarSign className="w-12 h-12 text-[#25D366] stroke-[1.5]" /> };
-    case 'legal':
-      return { bg: 'bg-[#ECEFF1]', icon: <Scale className="w-12 h-12 text-[#546E7A] stroke-[1.5]" /> };
-    case 'e-commerce':
-      return { bg: 'bg-[#FFE6F2]', icon: <ShoppingCart className="w-12 h-12 text-[#EC4899] stroke-[1.5]" /> };
-    case 'real-estate':
-      return { bg: 'bg-[#FAF0E6]', icon: <HomeIcon className="w-12 h-12 text-[#A1887F] stroke-[1.5]" /> };
-    case 'healthcare':
-      return { bg: 'bg-[#E0F7FA]', icon: <HeartPulse className="w-12 h-12 text-[#00ACC1] stroke-[1.5]" /> };
-    case 'wealth-trading':
-      return { bg: 'bg-[#E8F8F0]', icon: <TrendingUp className="w-12 h-12 text-[#25D366] stroke-[1.5]" /> };
-    case 'web3':
-      return { bg: 'bg-[#EDE7F6]', icon: <Coins className="w-12 h-12 text-[#673AB7] stroke-[1.5]" /> };
-    case 'ai-swarm':
-      return { bg: 'bg-[#EAF2FF]', icon: <Users className="w-12 h-12 text-[#0052FF] stroke-[1.5]" /> };
-    case 'ml-engine':
-      return { bg: 'bg-[#ECEFF1]', icon: <Brain className="w-12 h-12 text-[#546E7A] stroke-[1.5]" /> };
-    default:
-      return { bg: 'bg-zinc-100', icon: <Cpu className="w-12 h-12 text-zinc-500 stroke-[1.5]" /> };
+  // Find index in non-special products list to assign a completely unique icon
+  const nonSpecialIdx = nonSpecialProducts.findIndex(p => p.id === product.id);
+  if (nonSpecialIdx !== -1) {
+    const IconComponent = REMAINING_ICONS[nonSpecialIdx % REMAINING_ICONS.length];
+    return { bgStyle, icon: <IconComponent className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
   }
+
+  return { bgStyle, icon: <Cpu className="w-12 h-12 stroke-[1.5]" style={{ color: iconColor }} /> };
 };
 
 // Formatting Indian phone numbers (XXXXX XXXXX)
@@ -98,6 +116,7 @@ export default function Marketplace() {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedWorkflow, setExpandedWorkflow] = useState({}); // ID -> boolean
   const [selectedBundles, setSelectedBundles] = useState([]); // Array of Product IDs
+  const [connectedProducts, setConnectedProducts] = useState({});
 
   // Theme Syncing
   const [theme, setTheme] = useState(() => {
@@ -353,11 +372,73 @@ export default function Marketplace() {
               layout
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {filteredProducts.map((product, index) => {
+              {filteredProducts.map((product) => {
                 const isExpanded = !!expandedWorkflow[product.id];
                 const isSelected = selectedBundles.includes(product.id);
                 const headerStyle = getProductHeaderStyles(product);
                 
+                const isConnected = !!connectedProducts[product.id];
+                
+                if (isConnected) {
+                  const waText = encodeURIComponent(`Hi Autovate! I'd like to connect with your team to setup the "${product.name}" blueprint.`);
+                  return (
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 350, damping: 22 }}
+                      key={product.id}
+                      className={`relative flex flex-col justify-between rounded-[24px] border h-full p-6 text-center min-h-[420px] transition-all duration-300 ${
+                        isLight
+                          ? 'bg-white border-emerald-500/40 shadow-[0_8px_30px_rgba(16,185,129,0.04)]'
+                          : 'bg-zinc-900 border-emerald-500/35 shadow-[0_8px_30px_rgba(16,185,129,0.1)]'
+                      }`}
+                    >
+                      <div className="flex-grow flex flex-col items-center justify-center space-y-4 py-8">
+                        <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+                          <Check className="w-7 h-7 stroke-[3]" />
+                        </div>
+                        <div className="space-y-1">
+                          <h3 className={`text-sm font-bold font-display uppercase tracking-tight ${isLight ? 'text-zinc-900' : 'text-[#F8FAFC]'}`}>
+                            Request Received!
+                          </h3>
+                          <p className={`text-[11px] leading-relaxed max-w-[200px] mx-auto ${isLight ? 'text-zinc-550' : 'text-[#94A3B8]'}`}>
+                            Connecting you with our engineers for the <span className="text-primary font-semibold">{product.name}</span> setup.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2 pt-4 border-t border-cardBorder">
+                        <a
+                          href={`https://wa.me/919096861443?text=${waText}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="w-full py-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-bold uppercase tracking-wider rounded-xl shadow-sm text-[10px] flex items-center justify-center gap-1.5 transition-all active:scale-98"
+                        >
+                          <MessageSquare className="w-3.5 h-3.5" />
+                          <span>Chat on WhatsApp</span>
+                        </a>
+                        <button
+                          onClick={(e) => { 
+                            e.preventDefault(); 
+                            e.stopPropagation(); 
+                            setConnectedProducts(prev => ({ ...prev, [product.id]: false })); 
+                          }}
+                          className={`w-full py-2 border rounded-xl text-[9px] font-medium tracking-wide flex items-center justify-center gap-1 transition-all ${
+                            isLight 
+                              ? 'border-zinc-200 hover:border-zinc-300 text-zinc-500 hover:text-zinc-800 bg-zinc-50' 
+                              : 'border-cardBorder hover:border-white/20 text-bodyText/80 hover:text-white bg-background'
+                          }`}
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                          <span>Back to card</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.div
                     layout
@@ -373,9 +454,12 @@ export default function Marketplace() {
                   >
                     
                     {/* Top half - Pastel Background & Large Icon */}
-                    <div className={`h-[160px] w-full flex items-center justify-center relative transition-colors duration-300 ${
-                      isLight ? headerStyle.bg : 'bg-zinc-950/65'
-                    }`}>
+                    <div 
+                      className={`h-[160px] w-full flex items-center justify-center relative transition-colors duration-300 ${
+                        isLight ? '' : 'bg-zinc-950/65'
+                      }`}
+                      style={isLight ? headerStyle.bgStyle : {}}
+                    >
                       <div className={`p-4 rounded-2xl ${!isLight ? 'bg-zinc-900/60 border border-cardBorder' : ''}`}>
                         {headerStyle.icon}
                       </div>
@@ -514,16 +598,17 @@ export default function Marketplace() {
 
                         {/* Actions */}
                         <div className="pt-2 space-y-2.5" onClick={(e) => e.stopPropagation()}>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); triggerCheckout(product); }}
-                            className={`w-full py-3 font-bold text-xs uppercase tracking-wider rounded-xl shadow-sm hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-1.5 ${
-                              isLight 
-                                ? 'bg-zinc-950 hover:bg-zinc-900 text-white' 
-                                : 'bg-gradient-to-r from-primary to-secondary text-black font-bold shadow-lg shadow-primary/5 hover:brightness-110'
-                            }`}
+                          <BuyNowButton
+                            onClick={(e) => { 
+                              e.stopPropagation(); 
+                              setConnectedProducts(prev => ({ ...prev, [product.id]: true }));
+                              triggerCheckout(product); 
+                            }}
+                            fullWidth
+                            className="rounded-xl"
                           >
-                            <span>⚡ Buy Now</span>
-                          </button>
+                            Connect with us
+                          </BuyNowButton>
                           
                           <button
                             onClick={(e) => { e.stopPropagation(); openEnquiryDrawer(product); }}
@@ -680,16 +765,13 @@ export default function Marketplace() {
               >
                 Clear
               </button>
-              <button
+              <GradientButton
                 onClick={openBundleEnquiry}
-                className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 ${
-                  isLight 
-                    ? 'bg-white hover:bg-zinc-100 text-black' 
-                    : 'bg-primary hover:opacity-95 text-black'
-                }`}
+                size="sm"
+                iconRight={<ArrowRight className="w-3.5 h-3.5" />}
               >
-                Enquire Bundle <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+                Enquire Bundle
+              </GradientButton>
             </div>
           </motion.div>
         )}

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Play, CheckCircle2, ShieldCheck, Download, Code, Cpu, LineChart, HelpCircle } from 'lucide-react';
+import { Play, CheckCircle2, ShieldCheck, Download, Code, LineChart } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
 import { Link } from 'react-router-dom';
 

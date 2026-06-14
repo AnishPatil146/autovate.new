@@ -1,9 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Eye, Terminal, ArrowRight, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Eye, Check, MessageSquare, RotateCcw } from 'lucide-react';
 import StarRating from './StarRating';
 import BadgeChip from './BadgeChip';
+import BuyNowButton from './BuyNowButton';
 
 export default function BotCard({ bot, onQuickView, onBuy }) {
   // Map category IDs to clean names
@@ -25,13 +26,67 @@ export default function BotCard({ bot, onQuickView, onBuy }) {
     'ml-engine': 'ML Engine'
   };
 
+  const [isConnected, setIsConnected] = useState(false);
   const cleanCategoryName = categoryNames[bot.category] || bot.category;
 
   const handleBuyClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    setIsConnected(true);
     if (onBuy) onBuy(bot);
   };
+
+  if (isConnected) {
+    const waText = encodeURIComponent(`Hi Autovate! I'd like to connect with your team to setup the "${bot.name}" blueprint.`);
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-emerald-500/35 shadow-[0_8px_30px_rgba(16,185,129,0.1)] transition-all duration-200 h-full p-5 text-center min-h-[300px]"
+      >
+        {/* Popular Badge Ribbon */}
+        {bot.reviewsCount > 150 && (
+          <div className="absolute top-0 right-0 overflow-hidden w-28 h-28 pointer-events-none">
+            <div className="absolute top-4 -right-8 w-28 py-1 bg-quaternary text-white font-mono text-[9px] font-bold text-center rotate-45 uppercase tracking-wider shadow-sm">
+              Hot Sell
+            </div>
+          </div>
+        )}
+
+        <div className="flex-grow flex flex-col items-center justify-center space-y-4 py-4">
+          <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+            <Check className="w-7 h-7 stroke-[3]" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="text-sm font-bold font-display text-headingText uppercase tracking-tight">Request Received!</h3>
+            <p className="text-[11px] text-bodyText leading-relaxed max-w-[200px] mx-auto">
+              Connecting you with our engineers for the <span className="text-primary font-semibold">{bot.name}</span> setup.
+            </p>
+          </div>
+        </div>
+        
+        <div className="space-y-2 pt-4 border-t border-cardBorder">
+          <a
+            href={`https://wa.me/919096861443?text=${waText}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-bold uppercase tracking-wider rounded-xl shadow-sm text-[10px] flex items-center justify-center gap-1.5 transition-all active:scale-98"
+          >
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>Chat on WhatsApp</span>
+          </a>
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsConnected(false); }}
+            className="w-full py-2 border border-cardBorder hover:border-white/20 text-bodyText/80 hover:text-white rounded-xl text-[9px] font-medium tracking-wide flex items-center justify-center gap-1 transition-all"
+          >
+            <RotateCcw className="w-3 h-3" />
+            <span>Back to details</span>
+          </button>
+        </div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -103,12 +158,12 @@ export default function BotCard({ bot, onQuickView, onBuy }) {
           >
             <Eye className="w-4 h-4" />
           </button>
-          <button
+          <BuyNowButton
             onClick={handleBuyClick}
-            className="px-4 py-2 bg-gradient-to-r from-primary to-secondary text-black font-bold text-xs uppercase tracking-wider rounded-xl hover:brightness-110 active:scale-95 transition-all flex items-center btn-shimmer"
+            className="px-4 h-[36px] rounded-xl text-[10px]"
           >
-            Buy Now
-          </button>
+            Connect with us
+          </BuyNowButton>
         </div>
       </div>
     </motion.div>

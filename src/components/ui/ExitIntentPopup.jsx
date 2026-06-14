@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Sparkles, Check } from 'lucide-react';
+import GradientButton from './GradientButton';
 
 export default function ExitIntentPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,12 +110,13 @@ export default function ExitIntentPopup() {
                   </div>
                   {error && <p className="text-red-500 text-xs text-left pl-4">{error}</p>}
                   
-                  <button
+                  <GradientButton
                     type="submit"
-                    className="w-full py-3.5 bg-secondary text-black font-medium rounded-full shadow-glowSecondary hover:bg-secondary/90 transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display"
+                    size="md"
+                    fullWidth
                   >
                     Reveal My 10% Discount Code
-                  </button>
+                  </GradientButton>
                 </form>
 
                 <p className="text-[11px] text-bodyText/70">
@@ -141,12 +143,12 @@ export default function ExitIntentPopup() {
                 </div>
 
                 <div className="pt-2">
-                  <button
+                  <GradientButton
                     onClick={handleDismiss}
-                    className="px-6 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-headingText rounded-full transition-colors text-sm font-medium"
+                    size="sm"
                   >
                     Start Browsing Bots
-                  </button>
+                  </GradientButton>
                 </div>
               </div>
             )}

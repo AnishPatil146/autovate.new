@@ -1,5 +1,4 @@
-import React from 'react';
-
+﻿
 export default function StarRating({ rating, size = 'sm' }) {
   const roundedRating = Math.round(rating * 2) / 2; // round to nearest 0.5
   const stars = [];

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import categoriesData from '../../data/categories.json';
 import * as Icons from 'lucide-react';

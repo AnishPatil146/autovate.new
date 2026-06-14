@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Sparkles, Check, ArrowRight, ChevronLeft, Brain, Zap, Clock, RefreshCw, MessageSquare
+  Sparkles, Check, ArrowRight, ChevronLeft, Brain, Zap, Clock, RefreshCw
 } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
 import ROICalculator from '../components/ui/ROICalculator';

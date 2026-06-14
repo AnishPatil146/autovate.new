@@ -1,5 +1,4 @@
-import React from 'react';
-import { Star, MessageSquareCode } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function SocialProofTicker() {
   const snippets = [

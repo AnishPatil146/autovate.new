@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import productsData from '../data/products.json';
 import { SEOPage } from '../utils/seoHelper';
-import { Send, PhoneCall, HelpCircle, AlertCircle, Calendar, MessageSquare, CheckCircle } from 'lucide-react';
+import { Send, HelpCircle, AlertCircle, Calendar, CheckCircle } from 'lucide-react';
+import GradientButton from '../components/ui/GradientButton';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -139,13 +140,14 @@ export default function Contact() {
                   </div>
                 )}
 
-                <button
+                <GradientButton
                   type="submit"
-                  className="w-full py-4 bg-secondary text-black font-bold font-display uppercase tracking-widest rounded-full shadow-glowSecondary hover:bg-secondary/90 transition-all flex items-center justify-center space-x-2"
+                  size="md"
+                  fullWidth
+                  icon={<Send className="w-3.5 h-3.5" />}
                 >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Send Ticket Query</span>
-                </button>
+                  Send Ticket Query
+                </GradientButton>
                 
               </form>
             ) : (
@@ -159,12 +161,12 @@ export default function Contact() {
                     Message received! We have dispatched a confirmation email and will follow up within 2 business hours.
                   </p>
                 </div>
-                <button
+                <GradientButton
                   onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2.5 bg-zinc-800 text-headingText rounded-full text-xs font-medium hover:bg-zinc-700 transition-colors"
+                  size="sm"
                 >
                   Submit Another Inquiry
-                </button>
+                </GradientButton>
               </div>
             )}
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MessageSquare, Phone, Calendar } from 'lucide-react';
+import { Phone, Calendar } from 'lucide-react';
 
 export default function Footer() {
   return (

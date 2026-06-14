@@ -1,5 +1,4 @@
-import React from 'react';
-
+﻿
 export default function WhatsAppButton() {
   const phoneNumber = '919096861443';
   const message = encodeURIComponent("Hello Autovate! I'd like to book a free automation strategy call for my business.");

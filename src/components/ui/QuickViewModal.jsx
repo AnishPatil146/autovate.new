@@ -1,9 +1,10 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Check, ArrowRight, ShieldCheck, Terminal, Cpu, CalendarCheck } from 'lucide-react';
+import { X, Check, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
 import StarRating from './StarRating';
 import BadgeChip from './BadgeChip';
 import { Link } from 'react-router-dom';
+import GradientButton from './GradientButton';
+import BuyNowButton from './BuyNowButton';
 
 export default function QuickViewModal({ bot, isOpen, onClose, onBuy }) {
   if (!bot) return null;
@@ -124,15 +125,15 @@ export default function QuickViewModal({ bot, isOpen, onClose, onBuy }) {
                     See How It Works <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                   </Link>
                   
-                  <button
+                  <BuyNowButton
                     onClick={() => {
                       onBuy(bot);
                       onClose();
                     }}
-                    className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-black font-bold text-xs uppercase tracking-wider rounded-xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center shrink-0 btn-shimmer"
+                    className="rounded-xl"
                   >
-                    Buy Now
-                  </button>
+                    Connect with us
+                  </BuyNowButton>
                 </div>
               </div>
 

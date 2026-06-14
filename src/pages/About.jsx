@@ -1,7 +1,5 @@
-import React from 'react';
-import { Sparkles, Terminal, Code2, Users, Rocket, HelpCircle } from 'lucide-react';
+import { Rocket } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
-import { Link } from 'react-router-dom';
 
 export default function About() {
   const compTable = [

@@ -6,7 +6,8 @@ import StarRating from '../components/ui/StarRating';
 import BadgeChip from '../components/ui/BadgeChip';
 import BotCard from '../components/ui/BotCard';
 import QuickViewModal from '../components/ui/QuickViewModal';
-import { ArrowLeft, Check, AlertTriangle, ShieldCheck, FileCheck } from 'lucide-react';
+import BuyNowButton from '../components/ui/BuyNowButton';
+import { ArrowLeft, Check, AlertTriangle, ShieldCheck, FileCheck, MessageSquare, RotateCcw } from 'lucide-react';
 import { useCheckout } from '../context/CheckoutContext';
 
 export default function ProductDetail() {
@@ -15,6 +16,7 @@ export default function ProductDetail() {
   const [faqOpen, setFaqOpen] = useState({});
   const [selectedBot, setSelectedBot] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
 
   // Find bot by slug
   const bot = productsData.find(b => b.slug === slug) || null;
@@ -42,6 +44,7 @@ export default function ProductDetail() {
   };
 
   const handleBuy = () => {
+    setIsConnected(true);
     if (bot) triggerCheckout(bot);
   };
 
@@ -141,44 +144,84 @@ export default function ProductDetail() {
           </div>
 
           {/* Right Block: Conversion Box (Checkout CTA & What's Included) */}
-          <div className="lg:col-span-5 bg-background border border-cardBorder rounded-2xl p-6 md:p-8 space-y-6 relative overflow-hidden shadow-sm">
+          <div className="lg:col-span-5 bg-background border border-cardBorder rounded-2xl p-6 md:p-8 space-y-6 relative overflow-hidden shadow-sm flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/3 rounded-full blur-2xl"></div>
 
-            <div className="space-y-1 text-center md:text-left">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-bodyText/70">One-Time Download Fee</span>
-              <div className="text-5xl font-extrabold font-mono text-primary">${bot.price}</div>
-              <p className="text-xs text-bodyText/70 font-mono mt-1">No monthly software overheads</p>
-            </div>
-
-            <div className="space-y-3">
-              <button
-                onClick={handleBuy}
-                className="w-full py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold font-display uppercase tracking-widest rounded-full shadow-sm hover:opacity-95 transition-all duration-300 transform active:scale-98 text-xs flex items-center justify-center space-x-2 btn-shimmer"
-                id="bot-buy-now-cta"
+            {isConnected ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="space-y-6 text-center my-auto py-8 w-full"
               >
-                <span>Buy Now — Deploy Today</span>
-              </button>
-              
-              <Link
-                to="/consultation"
-                className="w-full py-4 bg-card border border-cardBorder hover:border-primary text-headingText hover:text-primary font-bold font-display uppercase tracking-widest rounded-full transition-all text-xs flex items-center justify-center shadow-sm"
-              >
-                Request Custom setup (+$99)
-              </Link>
-            </div>
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.15)] mx-auto">
+                  <Check className="w-8 h-8 stroke-[3]" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold font-display text-headingText uppercase tracking-tight">Request Received!</h3>
+                  <p className="text-xs text-bodyText leading-relaxed max-w-[280px] mx-auto">
+                    We've received your request for the <span className="text-primary font-semibold">{bot.name}</span> blueprint setup. Our automation engineers will reach out to you shortly.
+                  </p>
+                </div>
+                
+                <div className="space-y-3 pt-6 border-t border-cardBorder">
+                  <a
+                    href={`https://wa.me/919096861443?text=${encodeURIComponent(`Hi Autovate! I'd like to connect with your team to setup the "${bot.name}" blueprint.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-bold uppercase tracking-wider rounded-full shadow-sm text-xs flex items-center justify-center gap-2 transition-all active:scale-98"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                  <button
+                    onClick={() => setIsConnected(false)}
+                    className="w-full py-3 border border-cardBorder hover:border-white/20 text-bodyText/80 hover:text-white rounded-full text-xs font-medium tracking-wide flex items-center justify-center gap-1.5 transition-all"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Back to details</span>
+                  </button>
+                </div>
+              </motion.div>
+            ) : (
+              <>
+                <div className="space-y-1 text-center md:text-left">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-bodyText/70">One-Time Download Fee</span>
+                  <div className="text-5xl font-extrabold font-mono text-primary">${bot.price}</div>
+                  <p className="text-xs text-bodyText/70 font-mono mt-1">No monthly software overheads</p>
+                </div>
 
-            {/* What is Included block */}
-            <div className="space-y-3 pt-4 border-t border-cardBorder text-left">
-              <h4 className="text-xs uppercase font-mono text-bodyText/70 font-bold tracking-wider">Deployment Package Contents</h4>
-              <ul className="space-y-2 text-xs text-bodyText">
-                {bot.includes.map((inc, idx) => (
-                  <li key={idx} className="flex items-center space-x-2.5">
-                    <FileCheck className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <div className="space-y-3">
+                  <BuyNowButton
+                    onClick={handleBuy}
+                    fullWidth
+                    className="rounded-full py-4 h-[50px] shadow-sm font-display tracking-widest"
+                    id="bot-buy-now-cta"
+                  >
+                    Connect with us
+                  </BuyNowButton>
+                  
+                  <Link
+                    to="/consultation"
+                    className="w-full py-4 bg-card border border-cardBorder hover:border-primary text-headingText hover:text-primary font-bold font-display uppercase tracking-widest rounded-full transition-all text-xs flex items-center justify-center shadow-sm"
+                  >
+                    Request Custom setup (+$99)
+                  </Link>
+                </div>
+
+                {/* What is Included block */}
+                <div className="space-y-3 pt-4 border-t border-cardBorder text-left">
+                  <h4 className="text-xs uppercase font-mono text-bodyText/70 font-bold tracking-wider">Deployment Package Contents</h4>
+                  <ul className="space-y-2 text-xs text-bodyText">
+                    {bot.includes.map((inc, idx) => (
+                      <li key={idx} className="flex items-center space-x-2.5">
+                        <FileCheck className="w-3.5 h-3.5 text-primary shrink-0" />
+                        <span>{inc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
 
             {/* Tech badges */}
             <div className="space-y-2 text-left pt-2">

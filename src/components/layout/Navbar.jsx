@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Phone, MessageSquare, Home as HomeIcon, Zap, Clock, CreditCard, ShoppingCart, Brain, Sun, Moon } from 'lucide-react';
+import { Menu, X, Phone, Home as HomeIcon, Clock, CreditCard, ShoppingCart, Brain, Sun, Moon } from 'lucide-react';
+import GradientButton from '../ui/GradientButton';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isMarketplace = /^\/marketplace\/?$/.test(location.pathname);
   const [marketplaceTheme, setMarketplaceTheme] = useState(() => {
     try {
       return localStorage.getItem('marketplace-theme') || 'dark';
-    } catch (e) {
+    } catch {
       return 'dark';
     }
   });
@@ -20,7 +20,7 @@ export default function Navbar() {
     const handleThemeChange = () => {
       try {
         setMarketplaceTheme(localStorage.getItem('marketplace-theme') || 'dark');
-      } catch (e) {
+      } catch {
         setMarketplaceTheme('dark');
       }
     };
@@ -193,16 +193,15 @@ export default function Navbar() {
                 <Sun className="w-4 h-4 text-primary animate-pulse" />
               )}
             </button>
-            <motion.a
+            <GradientButton
               href="tel:+919096861443"
-              whileHover={{ scale: 1.03, brightness: 1.08 }}
-              transition={{ duration: 0.15 }}
-              className={`inline-flex items-center justify-center px-4 py-2 text-xs font-bold font-display uppercase tracking-wider rounded-full transition-all ${
-                isLight ? 'text-zinc-800 hover:bg-zinc-100 border border-zinc-200 bg-white' : 'text-headingText hover:bg-background border border-cardBorder'
-              }`}
+              variant="outline"
+              size="sm"
+              icon={<Phone className="w-3.5 h-3.5" />}
+              className="hidden lg:inline-flex"
             >
-              <Phone className={`w-3.5 h-3.5 mr-1.5 ${isLight ? 'text-zinc-800' : 'text-primary'}`} /> Call Us
-            </motion.a>
+              Call Us
+            </GradientButton>
             <motion.a
               href="https://wa.me/919096861443"
               target="_blank"
@@ -291,14 +290,15 @@ export default function Navbar() {
               )}
             </button>
 
-            <a
+            <GradientButton
               href="tel:+919096861443"
-              className={`inline-flex items-center justify-center w-full py-3 font-display font-bold uppercase tracking-wider rounded-full text-xs border ${
-                  isLight ? 'text-zinc-800 border-zinc-200 hover:bg-zinc-150/50' : 'text-headingText border-cardBorder hover:bg-background'
-                }`}
-              >
-                <Phone className={`w-3.5 h-3.5 mr-2 ${isLight ? 'text-zinc-800' : 'text-primary'}`} /> Call Us
-            </a>
+              variant="outline"
+              size="sm"
+              fullWidth
+              icon={<Phone className="w-3.5 h-3.5" />}
+            >
+              Call Us
+            </GradientButton>
             <a
               href="https://wa.me/919096861443"
               target="_blank"

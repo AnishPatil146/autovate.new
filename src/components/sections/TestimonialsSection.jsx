@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import testimonialsData from '../../data/testimonials.json';
 import { Star, Quote, Sparkles } from 'lucide-react';
 

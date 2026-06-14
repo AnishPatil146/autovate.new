@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SEOPage } from '../utils/seoHelper';
-import { ArrowLeft, Clock, Video, Calendar, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowLeft, Clock, Video, ShieldCheck, Zap } from 'lucide-react';
+
+// Calendly Inline Embed Component
+function CalendlyEmbed({ url }) {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      try {
+        document.body.removeChild(script);
+      } catch (e) {
+        // Safe catch
+      }
+    };
+  }, []);
+
+  return (
+    <div 
+      className="calendly-inline-widget w-full" 
+      data-url={url}
+      style={{ minWidth: '320px', height: '650px', background: 'transparent' }} 
+    />
+  );
+}
 
 export default function Consultation() {
   return (
@@ -78,14 +104,7 @@ export default function Consultation() {
 
           {/* Right Column: Embedded Calendly Scheduler */}
           <div className="lg:col-span-8 bg-card border border-cardBorder rounded-2xl shadow-sm overflow-hidden min-h-[650px] relative">
-            <iframe
-              src="https://calendly.com/anishpatil146/30min?back=1&month=2026-06"
-              width="100%"
-              height="650px"
-              frameBorder="0"
-              title="Calendly Scheduler"
-              className="w-full h-[650px]"
-            ></iframe>
+            <CalendlyEmbed url="https://calendly.com/anishpatil146/30min?hide_landing_page_details=1&hide_gdpr_banner=1" />
           </div>
         </div>
       </div>

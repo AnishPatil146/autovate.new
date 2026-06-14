@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 import CounterStat from '../ui/CounterStat';
+import GradientButton from '../ui/GradientButton';
 
 export default function HeroSection() {
   const canvasRef = useRef(null);
@@ -127,20 +128,22 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
+              <GradientButton
                 to="/marketplace"
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-black font-semibold rounded-full shadow-glow hover:bg-primary/95 transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display group"
+                size="md"
+                iconRight={<ArrowRight className="w-4 h-4" />}
                 id="hero-primary-cta"
               >
-                Browse 70+ Bots <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
+                Browse 70+ Bots
+              </GradientButton>
+              <GradientButton
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-card border border-cardBorder text-zinc-300 hover:text-headingText hover:border-zinc-700 font-semibold rounded-full transition-all duration-300 transform active:scale-98 text-sm uppercase tracking-wider font-display"
+                size="md"
+                variant="outline"
                 id="hero-secondary-cta"
               >
                 Book Free Bot Strategy Call
-              </Link>
+              </GradientButton>
             </div>
 
             {/* Micro Trust badges */}

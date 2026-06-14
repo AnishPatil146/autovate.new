@@ -28,8 +28,8 @@ export default {
         quaternary: 'var(--color-quaternary)',
       },
       fontFamily: {
-        sans: ['"DM Sans"', 'sans-serif'],
-        display: ['Syne', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
       },
       boxShadow: {
         glow: '0 1px 4px rgba(0,0,0,0.06)',

@@ -1,7 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, HelpCircle, Layers, ArrowRight, ShieldCheck, Sparkles, Zap, Building, CalendarCheck } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles, Building, CalendarCheck } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
+import GradientButton from '../components/ui/GradientButton';
 
 export default function Pricing() {
   const bundles = [
@@ -144,13 +144,15 @@ export default function Pricing() {
               </ul>
 
               {/* Action Button - Targets consultation scheduling page */}
-              <Link
+              <GradientButton
                 to="/consultation"
-                className={`w-full py-3.5 bg-gradient-to-r ${bundle.btnGradient} text-white font-bold font-sans uppercase tracking-wider rounded-full shadow-sm hover:opacity-95 transition-all text-xs text-center flex items-center justify-center space-x-1.5 btn-shimmer`}
+                size="sm"
+                fullWidth
+                icon={<CalendarCheck className="w-4 h-4" />}
+                className="btn-shimmer"
               >
-                <CalendarCheck className="w-4 h-4" />
-                <span>{bundle.ctaText}</span>
-              </Link>
+                {bundle.ctaText}
+              </GradientButton>
 
             </div>
           ))}
@@ -173,12 +175,12 @@ export default function Pricing() {
             </div>
             
             <div className="lg:col-span-4 text-center lg:text-right">
-              <Link
+              <GradientButton
                 to="/consultation"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#202124] hover:bg-[#202124]/90 text-headingText font-bold font-sans uppercase tracking-wider rounded-full text-xs transition-all duration-300 shadow-md"
+                size="md"
               >
                 Book Enterprise Audit Call
-              </Link>
+              </GradientButton>
             </div>
           </div>
         </section>

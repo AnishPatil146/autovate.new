@@ -1,129 +1,217 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import productsData from '../data/products.json';
 import { SEOPage } from '../utils/seoHelper';
 import BotCard from '../components/ui/BotCard';
 import QuickViewModal from '../components/ui/QuickViewModal';
-import { CheckCircle2, MessageSquare } from 'lucide-react';
+import { 
+  CheckCircle2, Calendar, Clock, User, Mail, FileText, Check, 
+  CalendarCheck, ArrowLeft, ArrowRight, MessageSquare, RotateCcw
+} from 'lucide-react';
 import { useCheckout } from '../context/CheckoutContext';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Calendly Inline Embed Component
+function CalendlyEmbed({ email, botName }) {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      try {
+        document.body.removeChild(script);
+      } catch (e) {
+        // Safe catch
+      }
+    };
+  }, []);
+
+  const calendlyUrl = `https://calendly.com/anishpatil146/30min?email=${encodeURIComponent(email)}&a1=${encodeURIComponent(botName)}`;
+
+  return (
+    <div 
+      className="calendly-inline-widget w-full rounded-2xl border border-cardBorder/40 overflow-hidden" 
+      data-url={calendlyUrl}
+      style={{ minWidth: '320px', height: '680px', background: 'transparent' }} 
+    />
+  );
+}
 
 export default function ThankYou() {
   const [searchParams] = useSearchParams();
   const botName = searchParams.get('bot') || 'AI Bot Blueprint';
   const botPrice = searchParams.get('price') || '49';
+  const urlEmail = searchParams.get('email') || '';
   const { triggerCheckout } = useCheckout();
   
   const [selectedBot, setSelectedBot] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Pick 3 popular bots as upsells (excluding the one just bought if possible)
+  // Booking Widget States
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [bookingStep, setBookingStep] = useState(1); // 1: Select Slot, 2: Details Form, 3: Booked Success
+  
+  // Form details
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState(urlEmail);
+  const [notes, setNotes] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Pick 3 popular bots as upsells (excluding current bot)
   const upsells = productsData
     .filter(b => b.name !== botName)
     .sort((a, b) => b.reviewsCount - a.reviewsCount)
     .slice(0, 3);
+
+  // Generate next 5 business days
+  const availableDays = useMemo(() => {
+    const days = [];
+    let current = new Date();
+    // Start from tomorrow
+    current.setDate(current.getDate() + 1);
+    
+    while (days.length < 5) {
+      const dayOfWeek = current.getDay();
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Exclude Sunday (0) and Saturday (6)
+        days.push(new Date(current));
+      }
+      current.setDate(current.getDate() + 1);
+    }
+    return days;
+  }, []);
+
+  const timeSlots = ['09:00 AM', '10:00 AM', '11:30 AM', '02:00 PM', '03:30 PM', '05:00 PM'];
+
+  const formatDate = (date) => {
+    if (!date) return '';
+    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  };
+
+  const handleGmailCompose = () => {
+    const subject = encodeURIComponent(`Meeting Confirmed: Autovate Strategy Session for ${botName}`);
+    const body = encodeURIComponent(
+      `Hi ${fullName || 'there'},\n\n` +
+      `This is a confirmation receipt that your 30-minute expert automation session has been successfully scheduled.\n\n` +
+      `📅 SESSION DETAILS:\n` +
+      `- Blueprint: ${botName}\n` +
+      `- Date: ${formatDate(selectedDay)}\n` +
+      `- Time: ${selectedTime}\n` +
+      `- Goals/Problems: ${notes || 'Not specified'}\n\n` +
+      `Our automation engineers will prepare a custom working framework for your business and join the call to walk you through the pricing and integration requirements.\n\n` +
+      `Looking forward to meeting you!\n\n` +
+      `Best regards,\n` +
+      `Autovate Automation Team`
+    );
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+  };
+
+  const handleEmailFallback = () => {
+    const subject = encodeURIComponent(`Meeting Confirmed: Autovate Strategy Session for ${botName}`);
+    const body = encodeURIComponent(
+      `Hi ${fullName || 'there'},\n\n` +
+      `This is your receipt that your 30-minute expert automation session is scheduled.\n\n` +
+      `📅 SESSION DETAILS:\n` +
+      `- Blueprint: ${botName}\n` +
+      `- Date: ${formatDate(selectedDay)}\n` +
+      `- Time: ${selectedTime}\n` +
+      `- Goals/Problems: ${notes || 'Not specified'}\n\n` +
+      `We will connect at the scheduled time to discuss pricing and integration.\n\n` +
+      `Best regards,\n` +
+      `Autovate Team`
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleDaySelect = (day) => {
+    setSelectedDay(day);
+    setSelectedTime(null);
+  };
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+    setBookingStep(2);
+  };
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setBookingStep(3);
+    }, 1500);
+  };
 
   const handleQuickView = (bot) => {
     setSelectedBot(bot);
     setIsModalOpen(true);
   };
 
+  // Determine marketplace theme for styling
+  const isLight = typeof window !== 'undefined' && document.documentElement.classList.contains('theme-light');
+
   return (
-    <div className="min-h-screen pt-24 bg-background pb-20">
+    <div className="min-h-screen pt-24 bg-background pb-20 font-sans">
       <SEOPage
-        title="Order Confirmed | Welcome to Autovate"
-        description="Your order is confirmed! Download your AI automation files and blueprints and deploy in under 15 minutes."
+        title="Request Submitted | Autovate"
+        description="Thank you for connecting with us! Please book your expert strategy session to finalize setup and details."
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         
-        {/* Success Block */}
-        <div className="bg-card border border-primary/20 rounded-3xl p-8 md:p-12 text-center space-y-6 shadow-glow relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
+        {/* Success Header */}
+        <div className="bg-card border border-emerald-500/25 rounded-3xl p-8 md:p-12 text-center space-y-6 shadow-glow relative overflow-hidden">
+          {/* Motion Background Graphics */}
+          <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
 
-          <div className="inline-flex p-3 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            <CheckCircle2 className="w-12 h-12" />
+          <div className="inline-flex p-3.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_24px_rgba(16,185,129,0.15)]">
+            <CheckCircle2 className="w-12 h-12 stroke-[2]" />
           </div>
 
-          <div className="space-y-2 max-w-xl mx-auto">
-            <span className="text-[10px] font-mono text-bodyText/70 uppercase tracking-widest block">ORDER COMPLETED</span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-headingText font-display leading-none">
-              Your Setup Files Are Ready
+          <div className="space-y-3 max-w-xl mx-auto">
+            <span className="text-[10px] font-mono text-primary uppercase tracking-widest block font-bold">CONNECT REQUEST RECEIVED</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-headingText font-display leading-tight uppercase">
+              Thank You For Connecting!
             </h1>
-            <p className="text-bodyText text-xs sm:text-sm">
-              Thank you for purchasing the <span className="text-headingText font-bold">{botName} (${botPrice})</span>. The blueprints, API connectors, and video configuration checklists have been dispatched to your email.
+            <p className="text-bodyText text-xs sm:text-sm leading-relaxed">
+              We've successfully logged your request for the <span className="text-headingText font-bold">{botName}</span> integration. 
+              To help us tailor the perfect solution, please book a 30-minute expert meeting below.
             </p>
           </div>
-
-          <div className="h-px bg-zinc-800 max-w-md mx-auto"></div>
-
-          {/* Discord CTA */}
-          <div className="max-w-sm mx-auto p-4 bg-background/60 border border-cardBorder rounded-2xl flex items-center justify-between">
-            <div className="flex items-center space-x-3 text-left">
-              <MessageSquare className="w-5 h-5 text-primary shrink-0" />
-              <div>
-                <h4 className="text-xs font-bold text-headingText font-display">Join Customer Discord</h4>
-                <p className="text-[9px] text-zinc-550 text-zinc-550 text-bodyText/70">2,400+ automation developers</p>
-              </div>
-            </div>
-            
-            <a
-              href="https://discord.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 bg-card border border-cardBorder text-[10px] font-mono uppercase tracking-wider text-primary rounded-lg hover:bg-zinc-850"
-            >
-              Join
-            </a>
-          </div>
-
         </div>
 
-        {/* 3 Next Steps to Go Live */}
-        <section className="space-y-6 text-left">
-          <div className="space-y-2 border-b border-cardBorder pb-4 max-w-xl">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Next Steps to Go Live</h3>
-            <p className="text-xs sm:text-sm text-bodyText/70">Follow these 3 actions to deploy your bot blueprint in under 15 minutes.</p>
+        {/* Dynamic Booking Calendar & Motion graphic container */}
+        <div className="bg-card border border-cardBorder rounded-3xl overflow-hidden shadow-2xl relative">
+          <div className="p-6 md:p-10 border-b border-cardBorder bg-[#111116]/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="text-left space-y-1">
+              <span className="text-[10px] font-mono text-primary uppercase tracking-widest block font-bold">STEP 2 OF 2</span>
+              <h2 className="text-xl sm:text-2xl font-bold font-display text-headingText uppercase">
+                Schedule Your 30-Min Strategy Call
+              </h2>
+              <p className="text-xs text-bodyText/80">
+                Pick a slot where our experts will walk you through customized pricing, bot mechanics, and solving your problems.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/5 rounded-xl shrink-0">
+              <Clock className="w-4 h-4 text-primary" />
+              <span className="text-xs font-semibold text-white">30-Min Live Call</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">1</span>
-                <h4 className="font-bold text-headingText font-display text-xs">Verify Email Inbox</h4>
-              </div>
-              <p className="text-bodyText text-xs leading-relaxed">
-                Open the confirmation email from Autovate. It contains your download links for the blueprints (.json or .zip format).
-              </p>
-            </div>
-
-            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">2</span>
-                <h4 className="font-bold text-headingText font-display text-xs">Import configuration File</h4>
-              </div>
-              <p className="text-bodyText text-xs leading-relaxed">
-                Log into Make.com or Zapier. Select 'Import Blueprint' and load the downloaded file. It maps all nodes automatically.
-              </p>
-            </div>
-
-            <div className="bg-card border border-cardBorder p-6 rounded-2xl space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 rounded-lg bg-card border border-cardBorder flex items-center justify-center font-mono text-xs text-primary font-bold">3</span>
-                <h4 className="font-bold text-headingText font-display text-xs">Paste API Keys & Connect</h4>
-              </div>
-              <p className="text-bodyText text-xs leading-relaxed">
-                Open the variables tab. Paste your API keys (like OpenAI or Twilio) into the labeled fields. Hit run to start automating.
-              </p>
-            </div>
-
+          <div className="p-4 md:p-8 bg-[#111116]/10">
+            <CalendlyEmbed email={urlEmail} botName={botName} />
           </div>
-        </section>
+        </div>
 
-        {/* Recommended Stack Additions (Upsell Grid) */}
+        {/* Recommended blueprints section */}
         <section className="space-y-6">
           <div className="text-left space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Recommended Stack Additions</h3>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText uppercase">Recommended blueprints</h3>
             <p className="text-xs sm:text-sm text-bodyText/70">Deploy these complementary blueprints to further scale your operations.</p>
           </div>
 

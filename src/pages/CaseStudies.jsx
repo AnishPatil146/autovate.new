@@ -1,6 +1,5 @@
-import React from 'react';
+import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Award, Briefcase, TrendingUp, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
 
 export default function CaseStudies() {

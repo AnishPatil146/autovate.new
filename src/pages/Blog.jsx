@@ -1,5 +1,4 @@
-import React from 'react';
-import { BookOpen, Clock, ArrowRight, Sparkles } from 'lucide-react';
+import { Clock, ArrowRight, Sparkles } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
 import { Link } from 'react-router-dom';
 
