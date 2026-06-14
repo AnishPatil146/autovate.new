@@ -92,7 +92,7 @@ export default function ROICalculator() {
           <div className="space-y-2 text-sm text-zinc-300">
             <div className="flex justify-between">
               <span>Average Bot Cost:</span>
-              <span className="font-mono text-headingText font-bold">${averageBotCost} (One-Time)</span>
+              <span className="font-mono text-headingText font-bold">${averageBotCost} (3 Months)</span>
             </div>
             <div className="flex justify-between">
               <span>Break-Even Time:</span>

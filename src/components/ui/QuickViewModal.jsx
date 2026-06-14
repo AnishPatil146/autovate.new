@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Check, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
+import { X, Check, ArrowRight, ShieldCheck, Cpu, Sparkles } from 'lucide-react';
 import StarRating from './StarRating';
 import BadgeChip from './BadgeChip';
 import { Link } from 'react-router-dom';
@@ -43,6 +43,12 @@ export default function QuickViewModal({ bot, isOpen, onClose, onBuy }) {
                   {bot.rating >= 4.9 && <BadgeChip text="Top Rated" type="success" />}
                 </div>
                 <h3 className="text-2xl font-bold font-display text-headingText pr-6 uppercase">{bot.name}</h3>
+                
+                {/* Blueprint Indicator */}
+                <div className="flex items-center space-x-1.5 text-[11px] font-mono font-bold uppercase text-emerald-500 text-left">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Pre-Built Blueprint Included</span>
+                </div>
                 
                 <div className="flex items-center space-x-2.5">
                   <StarRating rating={bot.rating} />
@@ -90,7 +96,7 @@ export default function QuickViewModal({ bot, isOpen, onClose, onBuy }) {
                   </div>
 
                   <div className="space-y-2 text-left">
-                    <h4 className="text-xs uppercase tracking-wider font-mono text-bodyText/70 font-bold">What's Included</h4>
+                    <h4 className="text-xs uppercase tracking-wider font-mono text-bodyText/70 font-bold">Blueprint Package Contents</h4>
                     <ul className="space-y-1 text-xs text-bodyText">
                       {bot.includes.map((inc, idx) => (
                         <li key={idx} className="flex items-center">

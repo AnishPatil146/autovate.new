@@ -49,7 +49,7 @@ export default function CTABanner() {
           </div>
 
           <div className="pt-2 text-bodyText/70 text-xs font-mono flex items-center justify-center space-x-6">
-            <span>✓ Flat One-Time Fee</span>
+            <span>✓ 3-Month Access & Support</span>
             <span>✓ Setup Video Guides</span>
             <span>✓ 30-Day Money-Back Guarantee</span>
           </div>

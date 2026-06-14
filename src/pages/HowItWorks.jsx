@@ -1,4 +1,4 @@
-import { Play, CheckCircle2, ShieldCheck, Download, Code, LineChart } from 'lucide-react';
+import { Play, CheckCircle2, Search, PhoneCall, Calendar, Zap } from 'lucide-react';
 import { SEOPage } from '../utils/seoHelper';
 import { Link } from 'react-router-dom';
 
@@ -6,47 +6,47 @@ export default function HowItWorksPage() {
   const detailedSteps = [
     {
       step: '01',
-      title: 'Browse & Choose Your Bot',
-      desc: 'Browse our catalog of 71 ready-to-deploy bots. Filter by your industry or specific technology stack (Make, Zapier, n8n, Node, or APIs). Each bot is built to solve one specific problem with zero logic overhead.',
+      title: 'Browse & Select Blueprint',
+      desc: 'Explore our catalog of 71 pre-engineered AI automation blueprints. Filter by your industry or tech stack (Make, Zapier, n8n, or Node) to find the exact workflow that solves your operational bottleneck.',
       bullets: [
-        'Filter by category or price points',
-        'Review outcomes and tech stacks',
-        'Check specific user reviews & ratings'
+        'Filter by industry specific categories',
+        'Review direct outcomes & tech stacks',
+        'Select multiple blueprints for custom integrations'
       ],
-      icon: Download
+      icon: Search
     },
     {
       step: '02',
-      title: 'Instant Secure Checkout',
-      desc: 'Once you click purchase, you are redirected to our secure payment gateway. Upon confirmation, the raw configuration files, blueprints, custom scripts, and visual schematics are sent to your email instantly.',
+      title: 'Connect With Us',
+      desc: 'Click "Connect with us" on any card to request a bot setup. Fill out your contact email or company details, and our visual routing connects you directly to our automation design engineers.',
       bullets: [
-        'Secure checkout via Stripe or Cards',
-        'Files sent within 30 seconds of check-out',
-        'Lifetime updates for the bot blueprint'
+        'Simple request form takes under 10 seconds',
+        'Instant WhatsApp redirection options',
+        'No upfront card or payment details required'
       ],
-      icon: ShieldCheck
+      icon: PhoneCall
     },
     {
       step: '03',
-      title: 'Deploy in Your Account',
-      desc: 'Load the downloaded blueprint directly into your own automation platform (like Make.com, n8n, or Zapier). Paste your credentials (e.g. OpenAI API keys, CRM connections) into the labeled fields. Follow our 10-minute setup screen-recording.',
+      title: 'Book a Strategy Consultation',
+      desc: 'Upon sending your request, schedule a 30-minute discovery call via the embedded Calendly widget. Our experts will outline the exact automation layout, integrations, and customization pricing.',
       bullets: [
-        'No developer setup or coding required',
-        'Follow our step-by-step video playlists',
-        'Files run on your own hosting accounts'
+        'Consult directly with senior automation architects',
+        'Get custom pricing matching your transaction volume',
+        'Map out custom API credentials and endpoints'
       ],
-      icon: Code
+      icon: Calendar
     },
     {
       step: '04',
-      title: 'Monitor Dashboard Metrics',
-      desc: 'Run the automation. The bot executes 24/7, routing leads, formatting documents, or predicting churn. Check logs and watch capital savings mount up on your operations control dashboard.',
+      title: 'Guided Expert Deployment',
+      desc: 'Sit back while our engineering team configures and deploys the blueprint directly inside your account. We help you securely connect your API keys (like OpenAI) and CRM to go live instantly.',
       bullets: [
-        '100% control of data flows and logs',
-        'Scale execution volume on-demand',
-        'Minimal API usage cost overheads'
+        'Hands-off configuration and server setup',
+        'Full security reviews of your API integrations',
+        'Go live in minutes and monitor automated savings'
       ],
-      icon: LineChart
+      icon: Zap
     }
   ];
 

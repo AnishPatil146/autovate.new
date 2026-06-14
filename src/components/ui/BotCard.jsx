@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Check, MessageSquare, RotateCcw } from 'lucide-react';
+import { Eye, Check, MessageSquare, RotateCcw, Sparkles } from 'lucide-react';
 import StarRating from './StarRating';
 import BadgeChip from './BadgeChip';
 import BuyNowButton from './BuyNowButton';
@@ -118,6 +118,12 @@ export default function BotCard({ bot, onQuickView, onBuy }) {
             {bot.name}
           </h3>
         </Link>
+
+        {/* Blueprint Indicator */}
+        <div className="flex items-center space-x-1.5 text-[10px] font-mono font-bold uppercase text-emerald-500 text-left">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Pre-Built Blueprint Included</span>
+        </div>
 
         {/* Short Description */}
         <p className="text-bodyText text-xs line-clamp-2 leading-relaxed">

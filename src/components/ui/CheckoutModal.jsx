@@ -57,7 +57,7 @@ export default function CheckoutModal({ bot, isOpen, onClose, onConfirm }) {
               <span className="text-[10px] font-mono text-primary uppercase tracking-widest block font-bold">Request Setup & Access</span>
               <h3 className="text-xl font-bold font-display text-headingText uppercase">Connect with us</h3>
               <p className="text-bodyText text-xs leading-relaxed">
-                You are requesting access for the <span className="text-headingText font-bold">{bot.name}</span> setup (Value: <span className="text-primary font-mono font-bold">${bot.price}</span>).
+                You are requesting access for the <span className="text-headingText font-bold">{bot.name}</span> setup (Value: <span className="text-primary font-mono font-bold">${bot.price} / 3 mos</span>).
               </p>
             </div>
 

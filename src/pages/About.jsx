@@ -4,7 +4,7 @@ import { SEOPage } from '../utils/seoHelper';
 export default function About() {
   const compTable = [
     { feature: 'Setup Costs', bot: 'One-Time Flat Fee ($29–$129)', agency: 'High Setup retainer ($2,500+)', va: 'Continuous hourly rates' },
-    { feature: 'Deploy Timelines', bot: 'Immediate file download (under 15 min)', agency: 'Months of scoping & sprints', va: 'Weeks of screening & training' },
+    { feature: 'Deploy Timelines', bot: 'Same-day guided deployment (under 24h)', agency: 'Months of scoping & sprints', va: 'Weeks of screening & training' },
     { feature: 'Error Margin Rates', bot: 'Near 0% (governed by programmatic rules)', agency: 'Depends on developers', va: 'High error rates (manual fatigue)' },
     { feature: 'Availability Scope', bot: '24/7/365 uninterrupted runtime', agency: 'Standard business hours', va: 'Sick days, time-zones limits' },
     { feature: 'System Ownership', bot: '✓ 100% code ownership in your account', agency: 'Lock-in software/proprietary', va: 'Employee attrition risks' }

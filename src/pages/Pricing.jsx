@@ -14,10 +14,10 @@ export default function Pricing() {
       badgeType: 'popular',
       features: [
         'Select any 3 automation blueprints',
-        'Direct download files (.json, .blueprint)',
+        'Pre-built blueprint configuration packages',
         'Video setup guides & checklists',
         'Standard setup helpline access',
-        'Lifetime updates for selected bots',
+        '3-Month updates for selected bots',
         'Save 20% off individual catalog pricing'
       ],
       ctaText: 'Discuss Starter Stack',
@@ -36,10 +36,10 @@ export default function Pricing() {
       badgeType: 'value',
       features: [
         'Select any 7 automation blueprints',
-        'Direct download files (.json, .blueprint)',
+        'Pre-built blueprint configuration packages',
         'Detailed setup video playlists',
         'Priority Slack & email support',
-        'Lifetime updates for selected bots',
+        '3-Month updates for selected bots',
         'Save 30% off individual catalog pricing',
         'Bonus: Free Bot Setup Checklist PDF print-out'
       ],
@@ -59,10 +59,10 @@ export default function Pricing() {
       badgeType: 'success',
       features: [
         'Unlock all bots in one industry category',
-        'Direct download files (.json, .blueprint)',
+        'Pre-built blueprint configuration packages',
         'Detailed category setup guides',
         'Priority Slack & email support',
-        'Lifetime updates for all suite bots',
+        '3-Month updates for all suite bots',
         'Save 40% off individual catalog pricing',
         'Bonus: 1-hour developer onboarding strategy call'
       ],
@@ -82,7 +82,7 @@ export default function Pricing() {
     { name: 'Onboarding strategy call', individual: '—', bundle: '— (Growth/Arsenal gets bonus)', enterprise: '✓ Dedicated solution architect' },
     { name: 'Developer setup support', individual: '—', bundle: 'Optional add-on', enterprise: '✓ Included end-to-end integration' },
     { name: 'Discount rate margins', individual: 'Flat List Price', bundle: 'Save 20% to 40%', enterprise: 'Custom Contract Pricing' },
-    { name: 'License updates scope', individual: 'Lifetime support', bundle: 'Lifetime support', enterprise: 'SLA Maintenance contract support' }
+    { name: 'License updates scope', individual: '3-Month updates & support', bundle: '3-Month updates & support', enterprise: 'SLA Maintenance contract support' }
   ];
 
   return (
@@ -218,9 +218,9 @@ export default function Pricing() {
 
         {/* Micro Trust badges */}
         <div className="text-center pt-4 text-xs text-bodyText/80 font-mono flex flex-wrap justify-center gap-6">
-          <span>✓ Instant Download Deliveries</span>
-          <span>✓ Secure SSL Payment Gateways</span>
-          <span>✓ 30-Day Setup Refund Policy</span>
+          <span>✓ Guided Setup & Deployments</span>
+          <span>✓ Secure Integration Protocols</span>
+          <span>✓ 30-Day Setup Guarantee</span>
         </div>
 
       </div>

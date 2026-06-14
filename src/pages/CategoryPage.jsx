@@ -138,7 +138,7 @@ export default function CategoryPage() {
           <div className="text-left space-y-2">
             <h3 className="text-xl sm:text-2xl font-bold font-display text-headingText">Available Automation Blueprints</h3>
             <p className="text-xs sm:text-sm text-bodyText/70">
-              Browse ready-to-deploy blueprints for the {category.name} stack. Click 'Buy Now' to download setup packages.
+              Browse ready-to-deploy blueprints for the {category.name} stack. Click 'Connect with us' to request a guided blueprint setup.
             </p>
           </div>
 

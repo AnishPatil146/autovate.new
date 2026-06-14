@@ -1,11 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   Search, X, Check, ArrowRight, ChevronDown, ChevronUp, Info, Sun, Moon,
   Cpu, Cloud, Activity, Megaphone, Compass, GraduationCap, DollarSign, Scale, ShoppingCart, Home as HomeIcon,
   HeartPulse, TrendingUp, Coins, Users, Brain, Sparkles, RotateCcw, MessageSquare, Zap, Terminal,
   Code, Globe, Layers, Server, Shield, Key, Lock, Eye, Map, Mail,
-  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, Link, Anchor,
+  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, Link as LinkIcon, Anchor,
   Award, Bookmark, Briefcase, Calendar, Camera, Cast, Clock, Copy, Download, Upload,
   ExternalLink, Feather, Gift, Grid, Inbox, Laptop, List, Monitor, Music, Package,
   Paperclip, Percent, Pin, Play, Power, Save, Send, Shuffle, Star, Target,
@@ -26,7 +27,7 @@ const REMAINING_ICONS = [
   Cpu, Cloud, Activity, Megaphone, Compass, GraduationCap, DollarSign, Scale, ShoppingCart, HomeIcon,
   HeartPulse, TrendingUp, Coins, Users, Brain, Sparkles, RotateCcw, MessageSquare, Zap, Terminal,
   Code, Globe, Layers, Server, Shield, Key, Lock, Eye, Map, Mail,
-  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, Link, Anchor,
+  FileText, Folder, PieChart, BarChart, LineChart, Settings, Sliders, Filter, LinkIcon, Anchor,
   Award, Bookmark, Briefcase, Calendar, Camera, Cast, Clock, Copy, Download, Upload,
   ExternalLink, Feather, Gift, Grid, Inbox, Laptop, List, Monitor, Music, Package,
   Paperclip, Percent, Pin, Play, Power, Save, Send, Shuffle, Star, Target,
@@ -454,7 +455,9 @@ export default function Marketplace() {
                   >
                     
                     {/* Top half - Pastel Background & Large Icon */}
-                    <div 
+                    <Link 
+                      to={`/bot/${product.slug}`}
+                      onClick={(e) => e.stopPropagation()}
                       className={`h-[160px] w-full flex items-center justify-center relative transition-colors duration-300 ${
                         isLight ? '' : 'bg-zinc-950/65'
                       }`}
@@ -465,12 +468,12 @@ export default function Marketplace() {
                       </div>
                       
                       {/* Checkbox (Click to toggle bundle selection) */}
-                      <div className="absolute top-4 right-4" onClick={(e) => e.stopPropagation()}>
+                      <div className="absolute top-4 right-4" onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleBundleSelection(product.id); }}>
                         <label className="relative flex items-center justify-center cursor-pointer">
                           <input
                             type="checkbox"
                             checked={isSelected}
-                            onChange={() => toggleBundleSelection(product.id)}
+                            onChange={() => {}}
                             className="sr-only peer"
                           />
                           <div className={`w-5 h-5 rounded-full border transition-all flex items-center justify-center ${
@@ -484,7 +487,7 @@ export default function Marketplace() {
                           </div>
                         </label>
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Bottom half - Content */}
                     <div className={`p-6 flex flex-col justify-between flex-grow space-y-4 transition-colors duration-350 ${
@@ -492,17 +495,25 @@ export default function Marketplace() {
                     }`}>
                       <div className="space-y-3">
                         {/* Header Row: Title & Category Badge */}
-                        <div className="flex items-start justify-between gap-2">
-                          <h3 className={`text-base font-bold font-sans transition-colors leading-snug text-left uppercase ${
-                            isLight ? 'text-zinc-900 group-hover:text-black' : 'text-[#F8FAFC] group-hover:text-primary'
-                          }`}>
-                            {product.name}
-                          </h3>
+                        <div className="flex items-start justify-between gap-2" onClick={(e) => e.stopPropagation()}>
+                          <Link to={`/bot/${product.slug}`} className="hover:opacity-90 flex-grow text-left">
+                            <h3 className={`text-base font-bold font-sans transition-colors leading-snug uppercase ${
+                              isLight ? 'text-zinc-900 group-hover:text-black' : 'text-[#F8FAFC] group-hover:text-primary'
+                            }`}>
+                              {product.name}
+                            </h3>
+                          </Link>
                           <span className={`shrink-0 text-[9px] font-bold font-sans px-2.5 py-1 rounded-full uppercase tracking-wider ${
                             isLight ? 'bg-zinc-100 text-zinc-550' : 'bg-zinc-800 text-zinc-400 border border-cardBorder'
                           }`}>
                             {product.category.replace('-', ' ')}
                           </span>
+                        </div>
+
+                        {/* Blueprint Indicator */}
+                        <div className="flex items-center space-x-1.5 text-[10px] font-mono font-bold uppercase text-emerald-500 text-left">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>Pre-Built Blueprint Included</span>
                         </div>
 
                         {/* Description */}
@@ -596,6 +607,19 @@ export default function Marketplace() {
                           ))}
                         </div>
 
+                        {/* Blueprint Package Contents */}
+                        <div className={`pt-3 border-t text-left space-y-1.5 ${isLight ? 'border-zinc-100' : 'border-cardBorder/60'}`}>
+                          <span className={`text-[9px] font-mono uppercase tracking-wider font-bold block ${isLight ? 'text-zinc-400' : 'text-zinc-500'}`}>Blueprint Package Contents</span>
+                          <div className="grid grid-cols-1 gap-1">
+                            {product.includes.slice(0, 3).map((inc, i) => (
+                              <div key={i} className="flex items-center text-[10px]">
+                                <span className="w-1 h-1 rounded-full bg-primary/75 mr-2 shrink-0"></span>
+                                <span className={`line-clamp-1 ${isLight ? 'text-zinc-650' : 'text-[#94A3B8]/95'}`}>{inc}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
                         {/* Actions */}
                         <div className="pt-2 space-y-2.5" onClick={(e) => e.stopPropagation()}>
                           <BuyNowButton
@@ -610,14 +634,15 @@ export default function Marketplace() {
                             Connect with us
                           </BuyNowButton>
                           
-                          <button
-                            onClick={(e) => { e.stopPropagation(); openEnquiryDrawer(product); }}
+                          <Link
+                            to={`/bot/${product.slug}`}
+                            onClick={(e) => e.stopPropagation()}
                             className={`w-full py-2 text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 ${
                               isLight ? 'text-zinc-500 hover:text-zinc-800' : 'text-primary hover:brightness-110'
                             }`}
                           >
-                            <span>Enquire on WhatsApp</span>
-                          </button>
+                            <span>View Details & Schematic</span>
+                          </Link>
                         </div>
                       </div>
 
@@ -843,7 +868,13 @@ export default function Marketplace() {
                       </div>
                       <div className="text-left">
                         <h4 className="font-bold text-xs uppercase">{drawerProduct.name}</h4>
-                        <span className="text-[10px] font-sans font-semibold text-zinc-400 uppercase">{drawerProduct.category.replace('-', ' ')}</span>
+                        <div className="flex items-center space-x-1.5 mt-0.5">
+                          <span className="text-[10px] font-sans font-semibold text-zinc-400 uppercase">{drawerProduct.category.replace('-', ' ')}</span>
+                          <span className="text-zinc-400">•</span>
+                          <span className="text-[10px] font-mono font-bold text-emerald-500 uppercase flex items-center gap-0.5">
+                            <Sparkles className="w-3.5 h-3.5" /> Blueprint
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ) : (

@@ -1,34 +1,34 @@
-import { Search, ShoppingCart, Cpu, BarChart3, ArrowRight } from 'lucide-react';
+import { Search, PhoneCall, Calendar, Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function HowItWorks({ showHeader = true }) {
   const steps = [
     {
       num: '01',
-      title: 'Browse & Choose',
-      desc: 'Filter our catalog of 70+ battle-tested bots. Select the template that automates your specific manual workflow.',
+      title: 'Browse & Select',
+      desc: 'Explore 70+ pre-engineered AI blueprints. Find the exact workflow that solves your operational bottleneck.',
       icon: Search,
       color: 'text-primary border-primary/20 bg-primary/5',
     },
     {
       num: '02',
-      title: 'Purchase & Download',
-      desc: 'Buy instantly. Receive your Make.com blueprints, n8n JSON scripts, or Zapier templates in your inbox within seconds.',
-      icon: ShoppingCart,
+      title: 'Connect With Us',
+      desc: 'Submit a request via WhatsApp or contact form. Get instantly routed to our automation design engineers.',
+      icon: PhoneCall,
       color: 'text-secondary border-secondary/20 bg-secondary/5',
     },
     {
       num: '03',
-      title: 'Paste & Configure',
-      desc: 'Load the files into your accounts. Paste your API keys and follow our 10-minute setup tutorials. No coding required.',
-      icon: Cpu,
+      title: 'Book Consultation',
+      desc: 'Schedule a 30-min strategy call. Map out custom credentials, integrations, and pricing matching your volume.',
+      icon: Calendar,
       color: 'text-tertiary border-tertiary/20 bg-tertiary/5',
     },
     {
       num: '04',
-      title: 'Scale & Monitor',
-      desc: 'Your bot runs 24/7 in the cloud. Monitor data inputs, lead alerts, and efficiency savings from your dashboard.',
-      icon: BarChart3,
+      title: 'Guided Deployment',
+      desc: 'Sit back as our experts deploy and configure the blueprint in your account with secure API integrations.',
+      icon: Zap,
       color: 'text-primary border-primary/20 bg-primary/5',
     }
   ];
@@ -47,10 +47,10 @@ export default function HowItWorks({ showHeader = true }) {
               Instant operational efficiency
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-headingText font-display">
-              From Zero to Automated in 15 Minutes
+              Guided Expert Deployment in Minutes
             </h2>
             <p className="text-bodyText text-sm md:text-base">
-              No development teams needed. No high project pricing. Just choose, download, paste, and run.
+              No developer overhead. No upfront costs. Choose a blueprint, connect with us, and we deploy it for you.
             </p>
           </div>
         )}
